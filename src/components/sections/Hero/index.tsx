@@ -16,7 +16,10 @@ export function Hero({ hero }: HeroProps) {
   const profileImage = hero.profileImage;
 
   return (
-    <section className="flex min-h-screen flex-col items-center justify-center px-4 py-16">
+    <section
+      id="home"
+      className="flex min-h-screen flex-col items-center justify-center px-4 py-16"
+    >
       <div className="flex w-full max-w-4xl flex-col items-center gap-8 text-center">
         {profileImage?.url && (
           <div className="relative h-32 w-32 overflow-hidden rounded-full">
