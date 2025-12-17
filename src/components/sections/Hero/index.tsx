@@ -22,7 +22,7 @@ export function Hero({ hero }: HeroProps) {
     >
       <div className="flex w-full max-w-4xl flex-col items-center gap-8 text-center">
         {profileImage?.url && (
-          <div className="relative h-32 w-32 overflow-hidden rounded-full">
+          <div className="relative h-48 w-48 overflow-hidden rounded-full sm:h-56 sm:w-56">
             <Image
               src={profileImage.url}
               alt={profileImage.title || name}
