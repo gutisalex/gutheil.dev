@@ -18,11 +18,14 @@ export function Hero({ hero }: HeroProps) {
   return (
     <section
       id="home"
-      className="flex min-h-screen flex-col items-center justify-center px-4 py-16"
+      className="relative flex min-h-screen flex-col items-center justify-center px-4 py-16 overflow-hidden"
     >
-      <div className="flex w-full max-w-4xl flex-col items-center gap-8 text-center">
+      {/* Subtle gradient background */}
+      <div className="absolute inset-0 bg-linear-to-b from-primary/5 via-transparent to-transparent dark:from-primary/10" />
+
+      <div className="relative flex w-full max-w-4xl flex-col items-center gap-8 text-center">
         {profileImage?.url && (
-          <div className="relative h-48 w-48 overflow-hidden rounded-full sm:h-56 sm:w-56">
+          <div className="relative h-48 w-48 overflow-hidden rounded-full sm:h-56 sm:w-56 ring-4 ring-primary/10 dark:ring-primary/20 shadow-lg animate-in fade-in zoom-in duration-700">
             <Image
               src={profileImage.url}
               alt={profileImage.title || name}
@@ -33,8 +36,8 @@ export function Hero({ hero }: HeroProps) {
           </div>
         )}
 
-        <div className="space-y-4">
-          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
+        <div className="space-y-4 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-150">
+          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl bg-linear-to-r from-foreground to-foreground/80 bg-clip-text">
             {name}
           </h1>
           <p className="text-xl text-muted-foreground sm:text-2xl">{title}</p>
@@ -43,19 +46,24 @@ export function Hero({ hero }: HeroProps) {
             <span className="hidden sm:inline">•</span>
             <a
               href={`mailto:${email}`}
-              className="hover:text-foreground transition-colors"
+              className="hover:text-foreground transition-colors duration-200"
             >
               {email}
             </a>
           </div>
         </div>
 
-        <a href={linkedInUrl} target="_blank" rel="noopener noreferrer">
-          <Button size="lg" className="mt-4 flex items-center gap-2">
-            <Linkedin className="h-5 w-5" />
-            View LinkedIn Profile
-          </Button>
-        </a>
+        <div className="animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300">
+          <a href={linkedInUrl} target="_blank" rel="noopener noreferrer">
+            <Button
+              size="lg"
+              className="mt-4 flex items-center gap-2 shadow-md hover:shadow-lg transition-all duration-200"
+            >
+              <Linkedin className="h-5 w-5" />
+              View LinkedIn Profile
+            </Button>
+          </a>
+        </div>
       </div>
     </section>
   );

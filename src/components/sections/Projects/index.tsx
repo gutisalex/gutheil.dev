@@ -21,8 +21,9 @@ export function Projects({ projects }: ProjectsProps) {
   return (
     <section id="projects" className="w-full px-4 py-16 sm:py-24">
       <div className="mx-auto max-w-4xl">
-        <h2 className="mb-12 text-3xl font-bold tracking-tight sm:text-4xl">
+        <h2 className="mb-12 text-3xl font-bold tracking-tight sm:text-4xl relative inline-block">
           Projects
+          <span className="absolute -bottom-2 left-0 h-1 w-12 bg-primary rounded-full" />
         </h2>
 
         <div className="grid gap-6 sm:grid-cols-2">
@@ -39,20 +40,22 @@ export function Projects({ projects }: ProjectsProps) {
             return (
               <Card
                 key={project.sys.id}
-                className="flex flex-col overflow-hidden"
+                className="flex flex-col overflow-hidden group hover:shadow-lg transition-all duration-300 border-border hover:border-primary/20"
               >
                 {image?.url && (
-                  <div className="relative h-48 w-full">
+                  <div className="relative h-48 w-full overflow-hidden">
                     <Image
                       src={image.url}
                       alt={image.title || title}
                       fill
-                      className="object-cover"
+                      className="object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                   </div>
                 )}
                 <div className="flex flex-1 flex-col p-6">
-                  <h3 className="mb-2 text-xl font-semibold">{title}</h3>
+                  <h3 className="mb-2 text-xl font-semibold group-hover:text-primary transition-colors duration-200">
+                    {title}
+                  </h3>
                   <p className="mb-4 flex-1 text-sm text-muted-foreground">
                     {description}
                   </p>
