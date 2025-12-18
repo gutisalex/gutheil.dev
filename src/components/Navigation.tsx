@@ -33,12 +33,16 @@ export function Navigation() {
     setIsMobileMenuOpen(false);
     const element = document.querySelector(href);
     if (element) {
-      const offset = 80; // Account for sticky header height
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - offset;
+      // Get the actual header height dynamically (header is h-16 = 64px)
+      const header = document.querySelector("header");
+      const headerHeight = header ? header.getBoundingClientRect().height : 64;
+      
+      // Calculate the target scroll position - use exact header height
+      const elementTop = element.getBoundingClientRect().top + window.pageYOffset;
+      const targetPosition = elementTop - headerHeight;
 
       window.scrollTo({
-        top: offsetPosition,
+        top: Math.max(0, targetPosition), // Ensure we don't scroll to negative position
         behavior: "smooth",
       });
     }
