@@ -1,6 +1,6 @@
-import { execSync } from "child_process";
-import { existsSync, copyFileSync } from "fs";
-import { join } from "path";
+import { execSync } from "node:child_process";
+import { existsSync } from "node:fs";
+import { join } from "node:path";
 
 const cvYamlPath = join(process.cwd(), "data", "resume.yaml");
 const publicDir = join(process.cwd(), "public");
@@ -19,7 +19,7 @@ if (!existsSync(cvYamlPath)) {
 // Check if rendercv is installed
 try {
   execSync("rendercv --version", { stdio: "ignore" });
-} catch (error) {
+} catch (_error) {
   console.error("❌ Error: RenderCV is not installed.");
   console.error("\n   Please install RenderCV first:");
   console.error("   pip3 install 'rendercv[full]'");
@@ -39,7 +39,7 @@ try {
     {
       stdio: "inherit",
       cwd: process.cwd(),
-    }
+    },
   );
 
   // Verify PDF was created

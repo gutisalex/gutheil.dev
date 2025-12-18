@@ -24,10 +24,13 @@ export function Contact({ hero }: ContactProps) {
   const linkedInUrl = hero.linkedInUrl ?? "";
 
   return (
-    <section id="contact" className="relative w-full bg-muted/30 px-4 py-16 sm:py-24 overflow-hidden">
+    <section
+      id="contact"
+      className="relative w-full bg-muted/30 px-4 py-16 sm:py-24 overflow-hidden"
+    >
       {/* Subtle gradient accent */}
-      <div className="absolute inset-0 bg-gradient-to-t from-primary/5 via-transparent to-transparent dark:from-primary/10" />
-      
+      <div className="absolute inset-0 bg-linear-to-t from-primary/5 via-transparent to-transparent dark:from-primary/10" />
+
       <div className="relative mx-auto max-w-4xl text-center">
         <h2 className="mb-6 text-3xl font-bold tracking-tight sm:text-4xl relative inline-block">
           Get In Touch
@@ -39,7 +42,10 @@ export function Contact({ hero }: ContactProps) {
         </p>
         <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
           <a href={linkedInUrl} target="_blank" rel="noopener noreferrer">
-            <Button size="lg" className="flex items-center gap-2 shadow-md hover:shadow-lg transition-all duration-200">
+            <Button
+              size="lg"
+              className="flex items-center gap-2 shadow-md hover:shadow-lg transition-all duration-200"
+            >
               <LinkedinIcon className="h-5 w-5" />
               Connect on LinkedIn
             </Button>

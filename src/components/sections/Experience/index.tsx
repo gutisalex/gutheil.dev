@@ -1,8 +1,8 @@
 import { Separator } from "@/components/ui/separator";
-import type { Experience } from "@/lib/content";
+import type { Experience as ExperienceType } from "@/lib/content";
 
 type ExperienceProps = {
-  experiences: Experience[];
+  experiences: ExperienceType[];
 };
 
 function formatDate(dateString: string): string {
@@ -16,7 +16,7 @@ function formatDate(dateString: string): string {
 function formatDateRange(
   startDate: string,
   endDate?: string,
-  isCurrent?: boolean
+  isCurrent?: boolean,
 ): string {
   const start = formatDate(startDate);
   if (isCurrent) {
@@ -31,7 +31,7 @@ function formatDateRange(
 
 export function Experience({ experiences }: ExperienceProps) {
   const sortedExperiences = [...experiences].sort(
-    (a, b) => (a.order ?? 0) - (b.order ?? 0)
+    (a, b) => (a.order ?? 0) - (b.order ?? 0),
   );
 
   return (
@@ -92,11 +92,11 @@ export function Experience({ experiences }: ExperienceProps) {
                           .split("\n")
                           .map((achievement) => achievement.trim())
                           .filter((achievement) => achievement.length > 0)
-                          .map((achievement, i) => {
+                          .map((achievement) => {
                             // Remove leading "- " if present
                             const cleaned = achievement.replace(/^-\s*/, "");
                             return (
-                              <li key={i} className="leading-relaxed">
+                              <li key={achievement} className="leading-relaxed">
                                 {cleaned}
                               </li>
                             );

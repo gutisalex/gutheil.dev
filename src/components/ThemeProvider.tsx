@@ -1,6 +1,9 @@
 "use client";
 
-import { ThemeProvider as NextThemesProvider, type Attribute } from "next-themes";
+import {
+  type Attribute,
+  ThemeProvider as NextThemesProvider,
+} from "next-themes";
 import type { ReactNode } from "react";
 
 type ThemeProviderProps = {
@@ -29,4 +32,3 @@ export function ThemeProvider({
     </NextThemesProvider>
   );
 }
-

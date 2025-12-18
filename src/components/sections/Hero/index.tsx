@@ -1,11 +1,11 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { Download, ChevronDown } from "lucide-react";
+import { ChevronDown, Download } from "lucide-react";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
 import type { HeroSection } from "@/lib/content";
+import { cn } from "@/lib/utils";
 
 // LinkedIn icon component (replacement for deprecated lucide-react Linkedin icon)
 const LinkedinIcon = ({ className }: { className?: string }) => (
@@ -108,7 +108,7 @@ export function Hero({ hero }: HeroProps) {
         href="#about"
         className={cn(
           "absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center justify-center text-muted-foreground hover:text-foreground transition-all duration-300",
-          isScrolled ? "opacity-0 pointer-events-none" : "opacity-100"
+          isScrolled ? "opacity-0 pointer-events-none" : "opacity-100",
         )}
         aria-label="Scroll to next section"
       >

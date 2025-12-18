@@ -1,6 +1,6 @@
+import { readFile } from "node:fs/promises";
+import { join } from "node:path";
 import { NextResponse } from "next/server";
-import { readFile } from "fs/promises";
-import { join } from "path";
 
 export async function GET() {
   try {
@@ -23,7 +23,7 @@ export async function GET() {
         error:
           "Resume not found. Please run 'bun run resume:generate' to generate the PDF.",
       },
-      { status: 404 }
+      { status: 404 },
     );
   }
 }

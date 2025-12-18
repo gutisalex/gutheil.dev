@@ -7,7 +7,7 @@ type SkillsProps = {
 
 export function Skills({ skillCategories }: SkillsProps) {
   const sortedCategories = [...skillCategories].sort(
-    (a, b) => (a.order ?? 0) - (b.order ?? 0)
+    (a, b) => (a.order ?? 0) - (b.order ?? 0),
   );
 
   return (
@@ -21,7 +21,8 @@ export function Skills({ skillCategories }: SkillsProps) {
         <div className="grid gap-8 sm:grid-cols-2">
           {sortedCategories.map((category) => {
             const categoryName = category.categoryName ?? "";
-            const skills = category.skills?.filter((s): s is string => s !== null) ?? [];
+            const skills =
+              category.skills?.filter((s): s is string => s !== null) ?? [];
 
             return (
               <div key={category.categoryName} className="space-y-3 group">
@@ -29,9 +30,9 @@ export function Skills({ skillCategories }: SkillsProps) {
                   {categoryName}
                 </h3>
                 <div className="flex flex-wrap gap-2">
-                  {skills.map((skill, index) => (
+                  {skills.map((skill) => (
                     <Badge
-                      key={index}
+                      key={skill}
                       variant="secondary"
                       className="hover:bg-primary/10 hover:text-primary hover:border-primary/20 transition-all duration-200 cursor-default"
                     >

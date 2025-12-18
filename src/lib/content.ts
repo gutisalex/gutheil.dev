@@ -1,5 +1,5 @@
-import { readFile } from "fs/promises";
-import { join } from "path";
+import { readFile } from "node:fs/promises";
+import { join } from "node:path";
 import matter from "gray-matter";
 
 // Content directory path
@@ -55,6 +55,35 @@ export interface Project {
   order: number;
 }
 
+// Raw data types from markdown frontmatter (may have different shapes)
+interface RawHeroData {
+  name?: string;
+  title?: string;
+  location?: string;
+  email?: string;
+  linkedInUrl?: string;
+  profileImage?: string | { url: string; title?: string };
+  profileImageTitle?: string;
+}
+
+interface RawSkillCategoryData {
+  categoryName?: string;
+  skills?: string[] | string;
+  order?: number;
+}
+
+interface RawProjectData {
+  title?: string;
+  description?: string;
+  technologies?: string[] | string;
+  projectUrl?: string;
+  githubUrl?: string;
+  imageUrl?: string;
+  imageTitle?: string;
+  featured?: boolean;
+  order?: number;
+}
+
 // Helper to read and parse a Markdown file
 async function readMarkdownFile<T>(filename: string): Promise<T> {
   const filePath = join(contentDirectory, filename);
@@ -63,7 +92,7 @@ async function readMarkdownFile<T>(filename: string): Promise<T> {
 
   // Merge frontmatter with content
   // For about section, content becomes summary
-  const result: any = { ...data };
+  const result: Record<string, unknown> = { ...data };
   if (content.trim()) {
     result.summary = content.trim();
   }
@@ -77,7 +106,7 @@ async function readMarkdownCollection<T>(filename: string): Promise<T[]> {
   let fileContents: string;
   try {
     fileContents = await readFile(filePath, "utf8");
-  } catch (error) {
+  } catch (_error) {
     // File doesn't exist, return empty array
     return [];
   }
@@ -104,12 +133,12 @@ async function readMarkdownCollection<T>(filename: string): Promise<T[]> {
           // We need to add it back before the content
           const frontmatterEnd = section.endsWith("---") ? "" : "\n---";
           // Merge frontmatter with content, ensuring proper closing
-          sections.push(section + frontmatterEnd + "\n\n" + nextSection);
+          sections.push(`${section}${frontmatterEnd}\n\n${nextSection}`);
           i++; // Skip the next section since we've merged it
         } else {
           // No content, just frontmatter - add closing if missing
           if (!section.endsWith("---")) {
-            sections.push(section + "\n---");
+            sections.push(`${section}\n---`);
           } else {
             sections.push(section);
           }
@@ -117,7 +146,7 @@ async function readMarkdownCollection<T>(filename: string): Promise<T[]> {
       } else {
         // Last section, just frontmatter - add closing if missing
         if (!section.endsWith("---")) {
-          sections.push(section + "\n---");
+          sections.push(`${section}\n---`);
         } else {
           sections.push(section);
         }
@@ -139,7 +168,7 @@ async function readMarkdownCollection<T>(filename: string): Promise<T[]> {
         return null;
       }
 
-      const result: any = { ...data };
+      const result: Record<string, unknown> = { ...data };
 
       if (content.trim()) {
         // Check if this is an experience with achievements
@@ -160,8 +189,8 @@ async function readMarkdownCollection<T>(filename: string): Promise<T[]> {
 // Fetch hero section
 export async function getHeroSection(): Promise<HeroSection | null> {
   try {
-    const hero = await readMarkdownFile<any>("hero.md");
-    
+    const hero = await readMarkdownFile<RawHeroData>("hero.md");
+
     // Handle profileImage - can be a string (URL) or object
     let profileImage: { url: string; title?: string } | undefined;
     if (hero.profileImage) {
@@ -179,7 +208,7 @@ export async function getHeroSection(): Promise<HeroSection | null> {
         };
       }
     }
-    
+
     return {
       name: hero.name ?? "",
       title: hero.title ?? "",
@@ -207,9 +236,8 @@ export async function getAboutSection(): Promise<AboutSection | null> {
 // Fetch all experiences
 export async function getExperiences(): Promise<Experience[]> {
   try {
-    const experiences = await readMarkdownCollection<Experience>(
-      "experiences.md"
-    );
+    const experiences =
+      await readMarkdownCollection<Experience>("experiences.md");
     return experiences.sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
   } catch (error) {
     console.error("Error reading experiences:", error);
@@ -220,9 +248,10 @@ export async function getExperiences(): Promise<Experience[]> {
 // Fetch all skill categories
 export async function getSkillCategories(): Promise<SkillCategory[]> {
   try {
-    const categories = await readMarkdownCollection<any>("skills.md");
+    const categories =
+      await readMarkdownCollection<RawSkillCategoryData>("skills.md");
     return categories
-      .map((cat: any) => {
+      .map((cat) => {
         let skills: string[] = [];
         if (Array.isArray(cat.skills)) {
           skills = cat.skills;
@@ -253,14 +282,15 @@ export async function getSkillCategories(): Promise<SkillCategory[]> {
 // Fetch all projects
 export async function getProjects(featured?: boolean): Promise<Project[]> {
   try {
-    const projects = await readMarkdownCollection<any>("projects.md");
+    const projects =
+      await readMarkdownCollection<RawProjectData>("projects.md");
     const filtered =
       featured !== undefined
-        ? projects.filter((p: any) => p.featured === featured)
+        ? projects.filter((p) => p.featured === featured)
         : projects;
 
     return filtered
-      .map((project: any) => {
+      .map((project) => {
         let technologies: string[] = [];
         if (Array.isArray(project.technologies)) {
           technologies = project.technologies;

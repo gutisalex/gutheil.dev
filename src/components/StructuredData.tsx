@@ -28,8 +28,8 @@ export function StructuredData({ hero }: StructuredDataProps) {
   return (
     <script
       type="application/ld+json"
+      // biome-ignore lint/security/noDangerouslySetInnerHtml: JSON.stringify is safe here
       dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
     />
   );
 }
-

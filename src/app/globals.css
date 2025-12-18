@@ -45,11 +45,12 @@
   --radius-2xl: calc(var(--radius) + 8px);
   --radius-3xl: calc(var(--radius) + 12px);
   --radius-4xl: calc(var(--radius) + 16px);
-  
+
   --animate-pulse-slow: pulse-slow 2s ease-in-out infinite;
-  
+
   @keyframes pulse-slow {
-    0%, 100% {
+    0%,
+    100% {
       opacity: 1;
       transform: translateY(0);
     }
@@ -80,7 +81,7 @@
   --input: oklch(0.92 0.004 286.32);
   --ring: oklch(0.705 0.015 286.067);
   --chart-1: oklch(0.87 0.12 207);
-  --chart-2: oklch(0.80 0.13 212);
+  --chart-2: oklch(0.8 0.13 212);
   --chart-3: oklch(0.71 0.13 215);
   --chart-4: oklch(0.61 0.11 222);
   --chart-5: oklch(0.52 0.09 223);
@@ -103,7 +104,7 @@
   --popover: oklch(0.21 0.006 285.885);
   --popover-foreground: oklch(0.985 0 0);
   --primary: oklch(0.71 0.13 215);
-  --primary-foreground: oklch(0.30 0.05 230);
+  --primary-foreground: oklch(0.3 0.05 230);
   --secondary: oklch(0.274 0.006 286.033);
   --secondary-foreground: oklch(0.985 0 0);
   --muted: oklch(0.274 0.006 286.033);
@@ -115,14 +116,14 @@
   --input: oklch(1 0 0 / 15%);
   --ring: oklch(0.552 0.016 285.938);
   --chart-1: oklch(0.87 0.12 207);
-  --chart-2: oklch(0.80 0.13 212);
+  --chart-2: oklch(0.8 0.13 212);
   --chart-3: oklch(0.71 0.13 215);
   --chart-4: oklch(0.61 0.11 222);
   --chart-5: oklch(0.52 0.09 223);
   --sidebar: oklch(0.21 0.006 285.885);
   --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.80 0.13 212);
-  --sidebar-primary-foreground: oklch(0.30 0.05 230);
+  --sidebar-primary: oklch(0.8 0.13 212);
+  --sidebar-primary-foreground: oklch(0.3 0.05 230);
   --sidebar-accent: oklch(0.274 0.006 286.033);
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
@@ -153,7 +154,7 @@
       opacity: 1;
     }
   }
-  
+
   @keyframes slide-in-from-bottom {
     from {
       transform: translateY(1rem);
@@ -164,7 +165,7 @@
       opacity: 1;
     }
   }
-  
+
   @keyframes zoom-in {
     from {
       transform: scale(0.95);
@@ -175,31 +176,31 @@
       opacity: 1;
     }
   }
-  
+
   .animate-in {
     animation-fill-mode: both;
   }
-  
+
   .fade-in {
     animation: fade-in 0.6s ease-out;
   }
-  
+
   .slide-in-from-bottom-4 {
     animation: slide-in-from-bottom 0.6s ease-out;
   }
-  
+
   .zoom-in {
     animation: zoom-in 0.6s ease-out;
   }
-  
+
   .duration-700 {
     animation-duration: 700ms;
   }
-  
+
   .delay-150 {
     animation-delay: 150ms;
   }
-  
+
   .delay-300 {
     animation-delay: 300ms;
   }

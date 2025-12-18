@@ -15,7 +15,7 @@ export function Projects({ projects }: ProjectsProps) {
   }
 
   const sortedProjects = [...projects].sort(
-    (a, b) => (a.order ?? 0) - (b.order ?? 0)
+    (a, b) => (a.order ?? 0) - (b.order ?? 0),
   );
 
   return (
@@ -60,8 +60,8 @@ export function Projects({ projects }: ProjectsProps) {
                     {description}
                   </p>
                   <div className="mb-4 flex flex-wrap gap-2">
-                    {technologies.map((tech: string, index: number) => (
-                      <Badge key={index} variant="outline" className="text-xs">
+                    {technologies.map((tech: string) => (
+                      <Badge key={tech} variant="outline" className="text-xs">
                         {tech}
                       </Badge>
                     ))}

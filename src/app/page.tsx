@@ -1,19 +1,19 @@
-import {
-  getHeroSection,
-  getAboutSection,
-  getExperiences,
-  getSkillCategories,
-  getProjects,
-} from "@/lib/content";
-import { Hero } from "@/components/sections/Hero";
-import { About } from "@/components/sections/About";
-import { Experience as ExperienceSection } from "@/components/sections/Experience";
-import { Skills } from "@/components/sections/Skills";
-import { Projects } from "@/components/sections/Projects";
-import { Contact } from "@/components/sections/Contact";
-import { StructuredData } from "@/components/StructuredData";
 import { Navigation } from "@/components/Navigation";
 import { ScrollToTop } from "@/components/ScrollToTop";
+import { StructuredData } from "@/components/StructuredData";
+import { About } from "@/components/sections/About";
+import { Contact } from "@/components/sections/Contact";
+import { Experience as ExperienceSection } from "@/components/sections/Experience";
+import { Hero } from "@/components/sections/Hero";
+import { Projects } from "@/components/sections/Projects";
+import { Skills } from "@/components/sections/Skills";
+import {
+  getAboutSection,
+  getExperiences,
+  getHeroSection,
+  getProjects,
+  getSkillCategories,
+} from "@/lib/content";
 
 export const revalidate = 3600; // Revalidate every hour
 
