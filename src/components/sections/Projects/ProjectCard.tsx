@@ -21,7 +21,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
   const image = project.image;
 
   return (
-    <Card className="flex flex-col overflow-hidden group hover:shadow-lg transition-all duration-300 border-border hover:border-primary/20 py-0 w-full h-full">
+    <Card className="flex flex-col overflow-hidden group hover:shadow-lg transition-all duration-300 border-border hover:border-primary/20 py-0 w-full h-full scroll-zoom-in">
       {image?.url && (
         <div className="relative w-full aspect-3/2 overflow-hidden">
           <Image
@@ -77,4 +77,3 @@ export function ProjectCard({ project }: ProjectCardProps) {
     </Card>
   );
 }
-

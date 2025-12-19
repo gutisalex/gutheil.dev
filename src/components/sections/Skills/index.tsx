@@ -13,19 +13,22 @@ export function Skills({ skillCategories }: SkillsProps) {
   return (
     <section id="skills" className="w-full bg-muted/30 px-4 py-16 sm:py-24">
       <div className="mx-auto max-w-4xl">
-        <h2 className="mb-12 text-3xl font-bold tracking-tight sm:text-4xl relative inline-block">
+        <h2 className="mb-12 text-3xl font-bold tracking-tight sm:text-4xl relative inline-block scroll-fade-in">
           Technical Skills
           <span className="absolute -bottom-2 left-0 h-1 w-12 bg-primary rounded-full" />
         </h2>
 
-        <div className="grid gap-8 sm:grid-cols-2">
+        <div className="grid gap-8 sm:grid-cols-2 scroll-stagger">
           {sortedCategories.map((category) => {
             const categoryName = category.categoryName ?? "";
             const skills =
               category.skills?.filter((s): s is string => s !== null) ?? [];
 
             return (
-              <div key={category.categoryName} className="space-y-3 group">
+              <div
+                key={category.categoryName}
+                className="space-y-3 group scroll-slide-up"
+              >
                 <h3 className="text-lg font-semibold group-hover:text-primary transition-colors duration-200">
                   {categoryName}
                 </h3>

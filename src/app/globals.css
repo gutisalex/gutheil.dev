@@ -162,7 +162,18 @@
 
   @keyframes slide-in-from-bottom {
     from {
-      transform: translateY(1rem);
+      transform: translateY(2rem);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes slide-in-from-top {
+    from {
+      transform: translateY(-2rem);
       opacity: 0;
     }
     to {
@@ -182,6 +193,114 @@
     }
   }
 
+  /* Pure CSS scroll-triggered animations using scroll-driven animations API */
+  /* Works in Chrome 115+, Safari 18+, Edge 115+ */
+  @supports (animation-timeline: view()) {
+    .scroll-fade-in {
+      opacity: 0;
+      animation: fade-in 0.8s ease-out forwards;
+      animation-timeline: view();
+      animation-range: entry 10% entry 70%;
+    }
+
+    .scroll-slide-up {
+      opacity: 0;
+      transform: translateY(2rem);
+      animation: slide-in-from-bottom 0.8s ease-out forwards;
+      animation-timeline: view();
+      animation-range: entry 10% entry 70%;
+    }
+
+    .scroll-slide-down {
+      opacity: 0;
+      transform: translateY(-2rem);
+      animation: slide-in-from-top 0.8s ease-out forwards;
+      animation-timeline: view();
+      animation-range: entry 10% entry 70%;
+    }
+
+    .scroll-zoom-in {
+      opacity: 0;
+      transform: scale(0.95);
+      animation: zoom-in 0.8s ease-out forwards;
+      animation-timeline: view();
+      animation-range: entry 10% entry 70%;
+    }
+
+    /* Staggered delays for child elements */
+    .scroll-stagger > *:nth-child(1) {
+      animation-delay: 0ms;
+    }
+    .scroll-stagger > *:nth-child(2) {
+      animation-delay: 100ms;
+    }
+    .scroll-stagger > *:nth-child(3) {
+      animation-delay: 200ms;
+    }
+    .scroll-stagger > *:nth-child(4) {
+      animation-delay: 300ms;
+    }
+    .scroll-stagger > *:nth-child(5) {
+      animation-delay: 400ms;
+    }
+    .scroll-stagger > *:nth-child(6) {
+      animation-delay: 500ms;
+    }
+    .scroll-stagger > *:nth-child(n + 7) {
+      animation-delay: 600ms;
+    }
+  }
+
+  /* Fallback: Simple fade-in animation for browsers without scroll-driven animations */
+  @supports not (animation-timeline: view()) {
+    .scroll-fade-in,
+    .scroll-slide-up,
+    .scroll-slide-down,
+    .scroll-zoom-in {
+      opacity: 0;
+      animation: fade-in 0.8s ease-out 0.3s forwards;
+    }
+
+    .scroll-slide-up {
+      transform: translateY(2rem);
+      animation: slide-in-from-bottom 0.8s ease-out 0.3s forwards;
+    }
+
+    .scroll-slide-down {
+      transform: translateY(-2rem);
+      animation: slide-in-from-top 0.8s ease-out 0.3s forwards;
+    }
+
+    .scroll-zoom-in {
+      transform: scale(0.95);
+      animation: zoom-in 0.8s ease-out 0.3s forwards;
+    }
+
+    /* Staggered delays for fallback */
+    .scroll-stagger > *:nth-child(1) {
+      animation-delay: 0.3s;
+    }
+    .scroll-stagger > *:nth-child(2) {
+      animation-delay: 0.4s;
+    }
+    .scroll-stagger > *:nth-child(3) {
+      animation-delay: 0.5s;
+    }
+    .scroll-stagger > *:nth-child(4) {
+      animation-delay: 0.6s;
+    }
+    .scroll-stagger > *:nth-child(5) {
+      animation-delay: 0.7s;
+    }
+    .scroll-stagger > *:nth-child(6) {
+      animation-delay: 0.8s;
+    }
+    .scroll-stagger > *:nth-child(n + 7) {
+      animation-delay: 0.9s;
+    }
+  }
+
+  /* Legacy animation classes (for initial page load) */
   .animate-in {
     animation-fill-mode: both;
   }
