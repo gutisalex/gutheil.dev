@@ -2,7 +2,7 @@ import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import yaml from "js-yaml";
 
-const cvYamlPath = join(process.cwd(), "data", "resume.yaml");
+const cvYamlPath = join(process.cwd(), "data", "Alexander_Gutheil_CV.yaml");
 const contentDir = join(process.cwd(), "content");
 
 interface CVData {

@@ -2,9 +2,9 @@ import { execSync } from "node:child_process";
 import { existsSync } from "node:fs";
 import { join } from "node:path";
 
-const cvYamlPath = join(process.cwd(), "data", "resume.yaml");
+const cvYamlPath = join(process.cwd(), "data", "Alexander_Gutheil_CV.yaml");
 const publicDir = join(process.cwd(), "public");
-const outputFileName = "resume.pdf";
+const outputFileName = "Alexander_Gutheil_CV.pdf";
 const publicPdfPath = join(publicDir, outputFileName);
 
 console.log("📄 Generating PDF from RenderCV YAML...\n");
@@ -54,3 +54,4 @@ try {
   console.error("\n❌ Error generating PDF:", error);
   process.exit(1);
 }
+

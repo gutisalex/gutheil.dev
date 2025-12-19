@@ -9,7 +9,7 @@
     "lint": "biome check",
     "format": "biome format --write",
     "content:generate": "bun run scripts/generate-content-from-yaml.ts",
-    "resume:generate": "bun run scripts/resume/generate-pdf.ts",
+    "resume:generate": "bun run scripts/generate-pdf.ts",
     "update:all": "bun run content:generate && bun run resume:generate"
   },
   "dependencies": {

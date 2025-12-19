@@ -5,14 +5,14 @@ import { NextResponse } from "next/server";
 export async function GET() {
   try {
     // Read the PDF from the public directory
-    const pdfPath = join(process.cwd(), "public", "resume.pdf");
+    const pdfPath = join(process.cwd(), "public", "Alexander_Gutheil_CV.pdf");
     const pdfBuffer = await readFile(pdfPath);
 
     // Return PDF as response
     return new NextResponse(pdfBuffer, {
       headers: {
         "Content-Type": "application/pdf",
-        "Content-Disposition": 'attachment; filename="resume.pdf"',
+        "Content-Disposition": 'attachment; filename="Alexander_Gutheil_CV.pdf"',
         "Cache-Control": "public, max-age=3600, s-maxage=3600",
       },
     });
