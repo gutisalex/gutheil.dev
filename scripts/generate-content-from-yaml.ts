@@ -20,6 +20,7 @@ interface CVData {
         location: string;
         start_date: string;
         end_date?: string | "present";
+        description?: string;
         highlights?: string[];
       }>;
       skills?: Array<{
@@ -112,15 +113,13 @@ ${professionalSummary}
           const isCurrent = isCurrentDate(exp.end_date);
           const order = index + 1;
 
-          // Combine highlights into description and achievements
+          // Use description if provided, otherwise empty string
+          const description = exp.description || "";
+          // All highlights go into achievements
           const highlights = exp.highlights || [];
-          const description = highlights.length > 0 ? highlights[0] : "";
           const achievements =
-            highlights.length > 1
-              ? highlights
-                  .slice(1)
-                  .map((h) => `- ${h}`)
-                  .join("\n")
+            highlights.length > 0
+              ? highlights.map((h) => `- ${h}`).join("\n")
               : "";
 
           const achievementsSection = achievements

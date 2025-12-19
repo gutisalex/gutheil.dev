@@ -16,29 +16,32 @@ cv:
         location: Cologne, Germany
         start_date: 2025-01
         end_date: present
+        description: Leading multiple frontend teams, mentoring developers, and driving innovation through modern technology adoption, performance optimization, and AI-enhanced development practices
         highlights:
           - Continue leading the Deutsche Glasfaser frontend team, driving technical decisions and architecture evolution for the ongoing platform modernization
           - Lead an external agency team working on the relaunch of the Deutsche Glasfaser checkout system, conducting code reviews and ensuring code quality and architectural consistency
           - Mentor team members and establish development best practices
+          - Successfully migrated the platform to Next.js 16 and React 19, ensuring seamless transition and improved performance
+          - Implemented performance optimizations including Redis caching, image optimization, and bundle analysis
+          - Set up CI/CD pipelines and automated deployment processes to streamline development workflows
+          - Extensive work with AI tools and technologies, developing expertise in leveraging AI to enhance development workflows and productivity
 
       - company: brandung GmbH
         position: Frontend Developer
         location: Cologne, Germany
         start_date: 2021-01
         end_date: 2024-12
+        description: Worked on various frontend projects including Flutter mobile development, Nuxt.js e-commerce relaunches, and Next.js CMS integrations. Progressed to Lead Frontend Developer role, leading the Deutsche Glasfaser platform modernization.
         highlights:
-          - Led the frontend team for the Deutsche Glasfaser GmbH relaunch (May 2023 – Present), a major enterprise project migrating from TYPO3 to Next.js with Contentful CMS
-          - Architected and implemented the complete frontend solution, initially using Next.js (App Router) and TypeScript
-          - Successfully migrated the platform to Next.js 16 and React 19, ensuring seamless transition and improved performance
+          - Built a Flutter mobile application for Tchibo's wlan to go service
+          - Contributed to the About You Outlet relaunch as part of a team, working with Nuxt.js, Scayle, and Storybook
+          - Participated in the 1. FC Köln website relaunch, a Next.js project integrated with Contentful CMS
+          - Led the frontend team for the Deutsche Glasfaser GmbH relaunch, a major enterprise project migrating from TYPO3 to Next.js with Contentful CMS
           - Integrated Contentful CMS via GraphQL with automated type generation for type-safe content management
-          - Implemented testing strategy with Playwright for end-to-end tests, Vitest for unit tests, and Storybook for component testing
-          - Implemented performance optimizations including Redis caching, image optimization, and bundle analysis
-          - Delivered a modern, scalable platform serving enterprise-level traffic with significantly improved performance and developer experience
+          - Implemented comprehensive testing strategy with Playwright for end-to-end tests, Vitest for unit tests, and Storybook for component testing
           - Managed the technical migration strategy and coordinated with cross-functional teams throughout the project lifecycle
-          - Contributed to multiple Nuxt.js relaunch projects including 1. FC Köln and About You, gaining extensive expertise in Vue.js ecosystem and headless CMS integrations
-          - Developed and maintained high-performance web applications using React, Next.js, and Vue.js frameworks
-          - Architected scalable frontend solutions using modern meta-frameworks (Next.js, Nuxt.js) and headless CMS platforms (Contentful, Storyblok, Scayle)
-          - Optimized application performance and user experience, implementing best practices for responsive design with Tailwind CSS
+          - Established component libraries and design systems to ensure consistency and reusability across projects
+          - Collaborated closely with designers, backend developers, and product managers to deliver high-quality user experiences
 
       - company: Zazmo GmbH
         position: Frontend Developer (Co-Founder)

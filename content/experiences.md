@@ -8,12 +8,17 @@ isCurrent: true
 order: 1
 ---
 
-Continue leading the Deutsche Glasfaser frontend team, driving technical decisions and architecture evolution for the ongoing platform modernization
+Leading multiple frontend teams, mentoring developers, and driving innovation through modern technology adoption, performance optimization, and AI-enhanced development practices
 
 ## Achievements
 
+- Continue leading the Deutsche Glasfaser frontend team, driving technical decisions and architecture evolution for the ongoing platform modernization
 - Lead an external agency team working on the relaunch of the Deutsche Glasfaser checkout system, conducting code reviews and ensuring code quality and architectural consistency
 - Mentor team members and establish development best practices
+- Successfully migrated the platform to Next.js 16 and React 19, ensuring seamless transition and improved performance
+- Implemented performance optimizations including Redis caching, image optimization, and bundle analysis
+- Set up CI/CD pipelines and automated deployment processes to streamline development workflows
+- Extensive work with AI tools and technologies, developing expertise in leveraging AI to enhance development workflows and productivity
 
 ---
 
@@ -27,21 +32,19 @@ isCurrent: false
 order: 2
 ---
 
-Led the frontend team for the Deutsche Glasfaser GmbH relaunch (May 2023 – Present), a major enterprise project migrating from TYPO3 to Next.js with Contentful CMS
+Worked on various frontend projects including Flutter mobile development, Nuxt.js e-commerce relaunches, and Next.js CMS integrations. Progressed to Lead Frontend Developer role, leading the Deutsche Glasfaser platform modernization.
 
 ## Achievements
 
-- Architected and implemented the complete frontend solution, initially using Next.js (App Router) and TypeScript
-- Successfully migrated the platform to Next.js 16 and React 19, ensuring seamless transition and improved performance
+- Built a Flutter mobile application for Tchibo's wlan to go service
+- Contributed to the About You Outlet relaunch as part of a team, working with Nuxt.js, Scayle, and Storybook
+- Participated in the 1. FC Köln website relaunch, a Next.js project integrated with Contentful CMS
+- Led the frontend team for the Deutsche Glasfaser GmbH relaunch, a major enterprise project migrating from TYPO3 to Next.js with Contentful CMS
 - Integrated Contentful CMS via GraphQL with automated type generation for type-safe content management
-- Implemented testing strategy with Playwright for end-to-end tests, Vitest for unit tests, and Storybook for component testing
-- Implemented performance optimizations including Redis caching, image optimization, and bundle analysis
-- Delivered a modern, scalable platform serving enterprise-level traffic with significantly improved performance and developer experience
+- Implemented comprehensive testing strategy with Playwright for end-to-end tests, Vitest for unit tests, and Storybook for component testing
 - Managed the technical migration strategy and coordinated with cross-functional teams throughout the project lifecycle
-- Contributed to multiple Nuxt.js relaunch projects including 1. FC Köln and About You, gaining extensive expertise in Vue.js ecosystem and headless CMS integrations
-- Developed and maintained high-performance web applications using React, Next.js, and Vue.js frameworks
-- Architected scalable frontend solutions using modern meta-frameworks (Next.js, Nuxt.js) and headless CMS platforms (Contentful, Storyblok, Scayle)
-- Optimized application performance and user experience, implementing best practices for responsive design with Tailwind CSS
+- Established component libraries and design systems to ensure consistency and reusability across projects
+- Collaborated closely with designers, backend developers, and product managers to deliver high-quality user experiences
 
 ---
 
@@ -55,10 +58,11 @@ isCurrent: false
 order: 3
 ---
 
-Co-founded startup focused on innovative group payment solutions, securing EXIST founder scholarship for first-year funding
+
 
 ## Achievements
 
+- Co-founded startup focused on innovative group payment solutions, securing EXIST founder scholarship for first-year funding
 - Achieved 2nd place in Hessian Founder Prize and 3rd place in Nordhessen Promotion Competition
 - Designed and developed a web application for group payment processing from concept to production
 - Built the frontend architecture using Vue.js, ensuring scalability and maintainability
@@ -79,10 +83,11 @@ isCurrent: false
 order: 4
 ---
 
-Developed innovative 3D applications using Unity 3D for automotive simulation environments and HMIs
+
 
 ## Achievements
 
+- Developed innovative 3D applications using Unity 3D for automotive simulation environments and HMIs
 - Created immersive Virtual Reality experiences for automotive applications
 - Designed and implemented 3D models using Maya
 - Programmed application logic in C# using Microsoft Visual Studio
@@ -101,10 +106,11 @@ isCurrent: false
 order: 5
 ---
 
-Managed and maintained Windows and Linux server environments
+
 
 ## Achievements
 
+- Managed and maintained Windows and Linux server environments
 - Diagnosed and resolved complex IT issues in client and server environments
 - Created and maintained system documentation and project requirements
 - Ensured reliable IT infrastructure for business operations
@@ -122,10 +128,11 @@ isCurrent: false
 order: 6
 ---
 
-Designed and developed custom websites for various clients
+
 
 ## Achievements
 
+- Designed and developed custom websites for various clients
 - Worked with content management systems including WordPress
 - Implemented SEO best practices to improve client website visibility
 - Managed client relationships and project delivery
