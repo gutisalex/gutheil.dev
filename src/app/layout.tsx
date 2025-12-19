@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     template: "%s | Alexander Gutheil",
   },
   description:
-    "Senior Frontend Developer with 10+ years of experience building high-performance web and mobile applications. Expert in Vue.js, Nuxt.js, React, and Next.js.",
+    "Senior Frontend Developer with 6+ years of focused experience building high-performance web and mobile applications. Expert in Vue.js, Nuxt.js, React, and Next.js.",
   keywords: [
     "Frontend Developer",
     "React",
@@ -40,14 +40,14 @@ export const metadata: Metadata = {
     url: "https://a.gutheil.dev",
     title: "Alexander Gutheil - Senior Frontend Developer",
     description:
-      "Senior Frontend Developer with 10+ years of experience building high-performance web and mobile applications.",
+      "Senior Frontend Developer with 6+ years of focused experience building high-performance web and mobile applications.",
     siteName: "Alexander Gutheil",
   },
   twitter: {
     card: "summary_large_image",
     title: "Alexander Gutheil - Senior Frontend Developer",
     description:
-      "Senior Frontend Developer with 10+ years of experience building high-performance web and mobile applications.",
+      "Senior Frontend Developer with 6+ years of focused experience building high-performance web and mobile applications.",
   },
   robots: {
     index: true,
