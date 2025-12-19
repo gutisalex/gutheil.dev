@@ -136,3 +136,5 @@ order: 6
 - Worked with content management systems including WordPress
 - Implemented SEO best practices to improve client website visibility
 - Managed client relationships and project delivery
+- Created responsive designs ensuring cross-browser compatibility
+- Delivered projects on time and within budget constraints
