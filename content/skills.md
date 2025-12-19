@@ -24,7 +24,7 @@ order: 4
 
 ---
 categoryName: CMS & Headless Platforms
-skills: ["Contentful (GraphQL)","Storyblok","Scayle"]
+skills: ["Contentful","Storyblok","Scayle"]
 order: 5
 ---
 

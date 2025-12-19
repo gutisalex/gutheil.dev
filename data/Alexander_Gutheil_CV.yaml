@@ -135,7 +135,7 @@ cv:
       - label: Styling & Design
         details: Tailwind CSS, CSS3, HTML5, Responsive Design
       - label: CMS & Headless Platforms
-        details: Contentful (GraphQL), Storyblok, Scayle
+        details: Contentful, Storyblok, Scayle
       - label: Build Tools & Testing
         details: Webpack, Vite, Playwright, Vitest, Jest, Storybook, Git, CI/CD
       - label: Tools & Platforms
