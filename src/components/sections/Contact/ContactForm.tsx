@@ -1,7 +1,7 @@
 "use client";
 
 import { AlertCircle, CheckCircle2, Loader2, Mail } from "lucide-react";
-import { useActionState } from "react";
+import { useEffect, useActionState, useState } from "react";
 import {
   type ContactFormState,
   submitContactForm,
@@ -22,6 +22,21 @@ export function ContactForm() {
     initialState,
   );
 
+  // Local state to preserve form values
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  // Clear form only on successful submission
+  const isSuccess = state.message && !state.errors && !state.isError;
+  useEffect(() => {
+    if (isSuccess) {
+      setFormData({ name: "", email: "", message: "" });
+    }
+  }, [isSuccess]);
+
   return (
     <form
       action={formAction}
@@ -37,6 +52,10 @@ export function ContactForm() {
           required
           disabled={pending}
           className="w-full"
+          value={formData.name}
+          onChange={(e) =>
+            setFormData((prev) => ({ ...prev, name: e.target.value }))
+          }
           aria-invalid={state.errors?.name ? true : undefined}
           aria-describedby={state.errors?.name ? "name-error" : undefined}
         />
@@ -57,6 +76,10 @@ export function ContactForm() {
           required
           disabled={pending}
           className="w-full"
+          value={formData.email}
+          onChange={(e) =>
+            setFormData((prev) => ({ ...prev, email: e.target.value }))
+          }
           aria-invalid={state.errors?.email ? true : undefined}
           aria-describedby={state.errors?.email ? "email-error" : undefined}
         />
@@ -77,6 +100,10 @@ export function ContactForm() {
           disabled={pending}
           className="w-full min-h-32"
           rows={6}
+          value={formData.message}
+          onChange={(e) =>
+            setFormData((prev) => ({ ...prev, message: e.target.value }))
+          }
           aria-invalid={state.errors?.message ? true : undefined}
           aria-describedby={state.errors?.message ? "message-error" : undefined}
         />
@@ -90,13 +117,13 @@ export function ContactForm() {
       {state.message && (
         <div
           className={`flex items-center gap-2 text-sm ${
-            state.errors
+            state.errors || state.isError
               ? "text-destructive"
               : "text-green-600 dark:text-green-400"
           }`}
           aria-live="polite"
         >
-          {state.errors ? (
+          {state.errors || state.isError ? (
             <AlertCircle className="h-4 w-4" />
           ) : (
             <CheckCircle2 className="h-4 w-4" />

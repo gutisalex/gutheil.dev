@@ -36,6 +36,7 @@ function getClientIP(): string {
 
 export type ContactFormState = {
   message?: string;
+  isError?: boolean;
   errors?: {
     name?: string[];
     email?: string[];
@@ -52,6 +53,7 @@ export async function submitContactForm(
     console.error("RESEND_API_KEY is not set");
     return {
       message: "Server configuration error. Please contact the administrator.",
+      isError: true,
     };
   }
 
@@ -88,6 +90,7 @@ export async function submitContactForm(
   if (!checkRateLimit(ip)) {
     return {
       message: "Too many requests. Please try again later.",
+      isError: true,
     };
   }
 
@@ -98,13 +101,18 @@ export async function submitContactForm(
     console.error("CONTACT_EMAIL environment variable is not set");
     return {
       message: "Server configuration error. Please contact the administrator.",
+      isError: true,
     };
   }
 
   // Send email using Resend
   try {
+    // Use custom domain email if configured, otherwise fallback to Resend's test domain
+    const fromEmail =
+      process.env.RESEND_FROM_EMAIL || "Contact Form <onboarding@resend.dev>";
+
     const { data, error } = await resend.emails.send({
-      from: process.env.RESEND_FROM_EMAIL || "Contact Form <onboarding@resend.dev>",
+      from: fromEmail,
       to: recipientEmail,
       replyTo: email,
       subject: `New contact form message from ${name}`,
@@ -131,6 +139,7 @@ ${message}
       console.error("Resend error:", error);
       return {
         message: "Failed to send message. Please try again later.",
+        isError: true,
       };
     }
 
@@ -141,6 +150,7 @@ ${message}
     console.error("Contact form error:", error);
     return {
       message: "An unexpected error occurred. Please try again later.",
+      isError: true,
     };
   }
 }

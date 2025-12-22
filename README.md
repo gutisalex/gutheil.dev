@@ -231,6 +231,10 @@ The project is configured for deployment on Vercel via GitHub:
    3. Create a new API key
    4. Copy it to your `.env.local` file
 
+   **Setting up Custom Domain (gutheil.dev):**
+   - See the detailed guide: [Resend Setup with Custom Domain](./docs/RESEND_SETUP.md)
+   - This includes DNS configuration, domain verification, and troubleshooting
+
    **Note**: 
    - The `CONTACT_EMAIL` environment variable is the **single source of truth** for your email address
    - It will override any email in `content/hero.md` and `data/Alexander_Gutheil_CV.yaml`
@@ -275,6 +279,7 @@ If you need to update the resume PDF:
 - [Content Architecture](./docs/CONTENT_ARCHITECTURE.md) - How content flows through the system
 - [Single Source of Truth](./docs/SINGLE_SOURCE_OF_TRUTH.md) - Content management workflow
 - [Resume Workflow](./docs/RESUME_WORKFLOW.md) - CV generation details
+- [Resend Setup](./docs/RESEND_SETUP.md) - Setting up Resend with custom domain
 
 ## 🔧 Development
 
