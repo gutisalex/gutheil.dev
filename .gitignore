@@ -42,3 +42,5 @@ next-env.d.ts
 
 # generated output files
 /data/rendercv_output
+# next-agents-md
+.next-docs/
