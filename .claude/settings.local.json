@@ -1,7 +1,13 @@
 {
   "permissions": {
     "allow": [
-      "Bash(ls /Users/alexander.gutheil/.claude/skills/setup-matt-pocock-skills/)"
+      "Bash(ls /Users/alexander.gutheil/.claude/skills/setup-matt-pocock-skills/)",
+      "Bash(npm install *)",
+      "Bash(npm run *)",
+      "Bash(npm audit *)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git commit --amend -m 'chore\\(deps\\): upgrade Next.js to 16.2.9 and fix audit vulnerabilities *)"
     ]
   }
 }
