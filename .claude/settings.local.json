@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls /Users/alexander.gutheil/.claude/skills/setup-matt-pocock-skills/)"
+    ]
+  }
+}
