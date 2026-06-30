@@ -89,9 +89,9 @@ gutheil.dev/
 
    ```bash
    bun install
-   # or
-   npm install
    ```
+
+   This project uses [Bun](https://bun.sh) as its package manager (`bun.lock`). Do not run `npm install` — it will recreate a conflicting `package-lock.json`.
 
 3. **Generate content from YAML**
 
@@ -113,8 +113,6 @@ gutheil.dev/
 
    ```bash
    bun run dev
-   # or
-   npm run dev
    ```
 
 6. **Open your browser**
@@ -205,9 +203,9 @@ The project is configured for deployment on Vercel via GitHub:
 3. **Build Settings**
 
    - **Framework Preset**: Next.js
-   - **Build Command**: `bun run build` (or `npm run build`)
+   - **Build Command**: `bun run build`
    - **Output Directory**: `.next` (default)
-   - **Install Command**: `bun install` (or `npm install`)
+   - **Install Command**: `bun install`
 
 4. **Environment Variables**
 
