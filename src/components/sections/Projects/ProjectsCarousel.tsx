@@ -45,4 +45,3 @@ export function ProjectsCarousel({ projects }: ProjectsCarouselProps) {
     </Carousel>
   );
 }
-

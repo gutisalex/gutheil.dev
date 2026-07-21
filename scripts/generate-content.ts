@@ -79,7 +79,9 @@ async function generateContentFromYaml() {
     // Use CONTACT_EMAIL from environment variable (single source of truth)
     const email = process.env.CONTACT_EMAIL;
     if (!email) {
-      console.error("   ❌ Error: CONTACT_EMAIL environment variable is not set");
+      console.error(
+        "   ❌ Error: CONTACT_EMAIL environment variable is not set",
+      );
       console.error("   Please set CONTACT_EMAIL in your .env.local file");
       process.exit(1);
     }

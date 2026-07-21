@@ -46,4 +46,3 @@ try {
   console.error("\n❌ Error in watch mode:", error);
   process.exit(1);
 }
-
