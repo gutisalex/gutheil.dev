@@ -301,4 +301,4 @@ Private project - All rights reserved
 
 ## 👤 Author
 
-Alexander Gutheil - [a.gutheil.dev](https://a.gutheil.dev)
+Alexander Gutheil - [gutheil.dev](https://gutheil.dev)

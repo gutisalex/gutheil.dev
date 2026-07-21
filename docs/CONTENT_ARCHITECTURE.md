@@ -4,7 +4,7 @@ This document explains how content is generated for both the portfolio website a
 
 ## Portfolio Website Content
 
-The portfolio website (`a.gutheil.dev`) gets its content from **Markdown files** stored in the `content/` directory.
+The portfolio website (`gutheil.dev`) gets its content from **Markdown files** stored in the `content/` directory.
 
 ### Content Flow
 
