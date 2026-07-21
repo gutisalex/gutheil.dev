@@ -24,7 +24,7 @@
       "a11y": {
         "noLabelWithoutControl": "off"
       },
-      "correctness": {
+      "style": {
         "useImportType": "warn"
       }
     },
@@ -35,13 +35,13 @@
   },
   "overrides": [
     {
-      "include": ["src/components/ui/**"],
+      "includes": ["src/components/ui/**"],
       "linter": {
         "rules": {
           "a11y": {
             "noLabelWithoutControl": "off"
           },
-          "correctness": {
+          "style": {
             "useImportType": "off"
           }
         }
