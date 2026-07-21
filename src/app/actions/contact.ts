@@ -45,7 +45,7 @@ export type ContactFormState = {
 };
 
 export async function submitContactForm(
-  prevState: ContactFormState | null,
+  _prevState: ContactFormState | null,
   formData: FormData,
 ): Promise<ContactFormState> {
   // Validate API key
@@ -111,7 +111,7 @@ export async function submitContactForm(
     const fromEmail =
       process.env.RESEND_FROM_EMAIL || "Contact Form <onboarding@resend.dev>";
 
-    const { data, error } = await resend.emails.send({
+    const { error } = await resend.emails.send({
       from: fromEmail,
       to: recipientEmail,
       replyTo: email,
@@ -154,4 +154,3 @@ ${message}
     };
   }
 }
-

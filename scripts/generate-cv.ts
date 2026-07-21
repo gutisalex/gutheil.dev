@@ -1,5 +1,5 @@
 import { execSync } from "node:child_process";
-import { existsSync, readFileSync, writeFileSync, unlinkSync } from "node:fs";
+import { existsSync, readFileSync, unlinkSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import yaml from "js-yaml";
 
@@ -47,11 +47,15 @@ try {
   // Override email with environment variable (single source of truth)
   data.cv.email = process.env.CONTACT_EMAIL;
   const updatedYaml = yaml.dump(data, { lineWidth: -1 });
-  
+
   // Write to temporary file
-  const tempYamlPath = join(process.cwd(), "data", "Alexander_Gutheil_CV.temp.yaml");
+  const tempYamlPath = join(
+    process.cwd(),
+    "data",
+    "Alexander_Gutheil_CV.temp.yaml",
+  );
   writeFileSync(tempYamlPath, updatedYaml, "utf8");
-  
+
   // Generate PDF directly to public directory, skip other formats
   console.log(`   Input:  ${cvYamlPath} (email from CONTACT_EMAIL env var)`);
   console.log(`   Output: ${publicPdfPath}\n`);
@@ -82,4 +86,3 @@ try {
   console.error("\n❌ Error generating PDF:", error);
   process.exit(1);
 }
-

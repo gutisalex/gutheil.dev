@@ -7,7 +7,6 @@ type StructuredDataProps = {
 export function StructuredData({ hero }: StructuredDataProps) {
   const name = hero.name ?? "";
   const title = hero.title ?? "";
-  const email = hero.email ?? "";
   const linkedInUrl = hero.linkedInUrl ?? "";
   const location = hero.location ?? "";
 

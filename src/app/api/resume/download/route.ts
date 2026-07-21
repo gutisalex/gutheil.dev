@@ -12,7 +12,8 @@ export async function GET() {
     return new NextResponse(pdfBuffer, {
       headers: {
         "Content-Type": "application/pdf",
-        "Content-Disposition": 'attachment; filename="Alexander_Gutheil_CV.pdf"',
+        "Content-Disposition":
+          'attachment; filename="Alexander_Gutheil_CV.pdf"',
         "Cache-Control": "public, max-age=3600, s-maxage=3600",
       },
     });
