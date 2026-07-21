@@ -19,6 +19,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://gutheil.dev"),
+  alternates: {
+    canonical: "/",
+  },
   title: {
     default: "Alexander Gutheil - Senior Frontend Developer",
     template: "%s | Alexander Gutheil",
@@ -40,7 +44,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://a.gutheil.dev",
+    url: "https://gutheil.dev",
     title: "Alexander Gutheil - Senior Frontend Developer",
     description:
       "Senior Frontend Developer with 6+ years of focused experience building high-performance web and mobile applications.",
