@@ -1,6 +1,6 @@
 "use client";
 
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink, GitBranch } from "lucide-react";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -67,7 +67,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
                 size="sm"
                 className="flex items-center gap-2"
               >
-                <Github className="h-4 w-4" />
+                <GitBranch className="h-4 w-4" />
                 GitHub
               </Button>
             </a>
