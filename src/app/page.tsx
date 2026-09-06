@@ -44,7 +44,7 @@ export default async function Home() {
   return (
     <>
       <StructuredData hero={hero} />
-      <Navigation />
+      <Navigation linkedInUrl={hero.linkedInUrl} />
       <main id="main-content" className="min-h-screen">
         <Hero hero={hero} contactEmail={contactEmail} />
         <About about={about} />
