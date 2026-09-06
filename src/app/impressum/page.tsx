@@ -15,7 +15,7 @@ export default function ImpressumPage() {
   return (
     <>
       <Navigation />
-      <div className="min-h-dvh pt-16">
+      <div className="min-h-dvh pt-[var(--site-header-height)]">
         <main className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
           <p className="mb-3 font-mono text-xs font-medium uppercase tracking-[0.2em] text-primary/80">
             Legal

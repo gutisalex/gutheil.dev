@@ -82,7 +82,7 @@ export function Navigation() {
           className="mx-auto max-w-6xl"
           aria-label="Main navigation"
         >
-        <div className="flex h-16 items-center justify-between">
+        <div className="flex h-[var(--site-header-height)] items-center justify-between">
           <Link
             href="#home"
             className="font-sans text-base font-semibold tracking-tight text-foreground transition-colors hover:text-foreground/80 sm:text-lg"
