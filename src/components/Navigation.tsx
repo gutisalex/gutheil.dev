@@ -75,23 +75,21 @@ export function Navigation() {
         className="absolute inset-0 bg-background/80"
         style={{ opacity: backgroundOpacity }}
       />
-      <nav
-        className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8"
-        aria-label="Main navigation"
+      <div
+        className="relative px-4 sm:px-6 lg:px-8"
       >
+        <nav
+          className="mx-auto max-w-6xl"
+          aria-label="Main navigation"
+        >
         <div className="flex h-16 items-center justify-between">
           <Link
             href="#home"
             className="font-sans text-sm font-semibold tracking-tight text-foreground transition-colors hover:text-foreground/80 sm:text-[0.9375rem]"
             onClick={() => setIsMobileMenuOpen(false)}
-            aria-label="Alexander Gutheil — home"
+            aria-label="gutheil.dev - home"
           >
-            <span className="sm:hidden">
-              Gutheil<span className="text-primary">.</span>
-            </span>
-            <span className="hidden sm:inline">
-              Alexander Gutheil<span className="text-primary">.</span>
-            </span>
+            gutheil<span className="text-primary">.dev</span>
           </Link>
 
           <div className="hidden md:flex md:items-center md:gap-0.5">
@@ -159,7 +157,8 @@ export function Navigation() {
             </div>
           </div>
         )}
-      </nav>
+        </nav>
+      </div>
     </header>
   );
 }
