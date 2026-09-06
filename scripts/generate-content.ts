@@ -1,6 +1,6 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { join } from "node:path";
-import yaml from "js-yaml";
+import { dump, load } from "js-yaml";
 
 const cvYamlPath = join(process.cwd(), "data", "Alexander_Gutheil_CV.yaml");
 const contentDir = join(process.cwd(), "content");
@@ -65,7 +65,7 @@ async function generateContentFromYaml() {
   try {
     // Read and parse YAML file
     const yamlContent = await readFile(cvYamlPath, "utf8");
-    const data = yaml.load(yamlContent) as CVData;
+    const data = load(yamlContent) as CVData;
 
     if (!data.cv) {
       throw new Error("Invalid YAML structure: missing 'cv' key");

@@ -11,20 +11,26 @@ This project uses [RenderCV](https://github.com/rendercv/rendercv) to generate a
 
 ### 1. Edit Your Resume
 
-Edit the YAML file: `data/resume.yaml`
+Edit the YAML file: `data/Alexander_Gutheil_CV.yaml`
 
 RenderCV uses a structured YAML format. See [RenderCV documentation](https://docs.rendercv.com) for details.
 
 ### 2. Generate PDF
 
 ```bash
-bun run resume:generate
+bun run cv:generate
+```
+
+Or generate both website content and PDF:
+
+```bash
+bun run update:all
 ```
 
 This will:
 
 - Generate a PDF from the YAML file using RenderCV
-- Copy it to both `docs/` and `public/` directories
+- Save it to `public/Alexander_Gutheil_CV.pdf`
 - The PDF in `public/` is automatically served via the API route
 
 ## API Endpoint
@@ -57,5 +63,5 @@ pip3 install "rendercv[full]"
 ### API returns 404
 
 - Ensure the PDF exists in the `public` directory
-- Run `bun run resume:generate` to generate the PDF
-- Check that `public/resume.pdf` exists
+- Run `bun run cv:generate` to generate the PDF
+- Check that `public/Alexander_Gutheil_CV.pdf` exists

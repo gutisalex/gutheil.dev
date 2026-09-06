@@ -87,17 +87,14 @@ The CV/resume PDF is generated from a **YAML file** using [RenderCV](https://git
 ### Content Flow
 
 ```
-data/resume.yaml
+data/Alexander_Gutheil_CV.yaml
     (structured YAML with all CV data)
          ↓
-    scripts/resume/generate-pdf.ts
+    scripts/generate-cv.ts
     (runs RenderCV to generate PDF)
          ↓
-    docs/rendercv_output/Alexander_Gutheil_CV.pdf
+    public/Alexander_Gutheil_CV.pdf
     (generated PDF)
-         ↓
-    Copied to:
-    - public/resume.pdf
          ↓
     /api/resume/download
     (serves PDF from public directory)
@@ -105,11 +102,11 @@ data/resume.yaml
 
 ### How It Works
 
-1. **Source File**: `data/resume.yaml` contains all CV data in RenderCV's YAML format
-2. **Generation Script**: `scripts/resume/generate-pdf.ts`:
+1. **Source File**: `data/Alexander_Gutheil_CV.yaml` contains all CV data in RenderCV's YAML format
+2. **Generation Script**: `scripts/generate-cv.ts`:
    - Runs `rendercv render` command
    - Generates PDF using Typst (professional typesetting)
-   - Copies PDF to both `docs/` and `public/` directories
+   - Saves PDF to `public/Alexander_Gutheil_CV.pdf`
 3. **API Route**: `src/app/api/resume/download/route.ts` serves the PDF from `public/`
 4. **Download**: Users can download via the "Download Resume" button
 
@@ -117,9 +114,9 @@ data/resume.yaml
 
 To update your CV:
 
-1. Edit `data/resume.yaml`
-2. Run: `bun run resume:generate`
-3. Commit the updated PDF
+1. Edit `data/Alexander_Gutheil_CV.yaml`
+2. Run: `bun run update:all` (or `bun run cv:generate` for PDF only)
+3. Commit the updated PDF and generated content files
 4. Deploy (PDF is served from `public/`)
 
 ### Why Two Different Systems?
@@ -136,7 +133,7 @@ The CV YAML is more structured (RenderCV format) while the portfolio content is 
 | Aspect             | Portfolio Website            | CV/Resume                          |
 | ------------------ | ---------------------------- | ---------------------------------- |
 | **Source Format**  | Markdown (.md)               | YAML (.yaml)                       |
-| **Location**       | `content/`                   | `data/resume.yaml`                 |
+| **Location**       | `content/`                   | `data/Alexander_Gutheil_CV.yaml`   |
 | **Parser**         | `gray-matter`                | `RenderCV` (Python)                |
 | **Output**         | Rendered HTML (React)        | PDF file                           |
 | **Update Process** | Edit Markdown → Auto-rebuild | Edit YAML → Generate PDF → Commit  |

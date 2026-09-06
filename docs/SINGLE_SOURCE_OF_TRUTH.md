@@ -1,16 +1,16 @@
 # Single Source of Truth Workflow
 
-Your CV YAML file (`data/resume.yaml`) is now the **single source of truth** for all content that appears in both your portfolio website and your CV/resume PDF.
+Your CV YAML file (`data/Alexander_Gutheil_CV.yaml`) is now the **single source of truth** for all content that appears in both your portfolio website and your CV/resume PDF.
 
 ## How It Works
 
 ```
-data/resume.yaml
+data/Alexander_Gutheil_CV.yaml
     (Single Source of Truth)
          ↓
     ┌─────────────────┬─────────────────┐
     ↓                 ↓                 ↓
-content:generate  resume:generate  (Manual)
+content:generate  cv:generate      (Manual)
     ↓                 ↓
 content/*.md      PDF Resume
     ↓                 ↓
@@ -21,7 +21,7 @@ Portfolio Site    Downloadable PDF
 
 ### 1. Edit Your Content
 
-**Edit the YAML file**: `data/resume.yaml`
+**Edit the YAML file**: `data/Alexander_Gutheil_CV.yaml`
 
 This file contains:
 
@@ -30,6 +30,7 @@ This file contains:
 - Work experience
 - Skills
 - Education
+- Certifications
 - Additional information
 
 ### 2. Generate Everything
@@ -52,7 +53,7 @@ Or run them separately:
 bun run content:generate
 
 # Generate PDF resume only
-bun run resume:generate
+bun run cv:generate
 ```
 
 ### 3. What Gets Generated
@@ -66,7 +67,7 @@ bun run resume:generate
 
 **CV/Resume**:
 
-- `public/resume.pdf` - PDF served via API
+- `public/Alexander_Gutheil_CV.pdf` - PDF served via API
 
 ### 4. Website-Only Content
 
@@ -85,6 +86,7 @@ bun run resume:generate
 - Work experience
 - Skills
 - Education (in CV, not currently on website)
+- Certifications (in CV, not currently on website)
 
 ### 🎯 Website-Only
 
@@ -94,12 +96,13 @@ bun run resume:generate
 ### 📄 CV-Only
 
 - Education details (full details in CV, summary on website)
+- Certifications
 - Additional information section
 - Design/formatting settings
 
 ## Example: Updating Your Job Title
 
-1. **Edit** `data/resume.yaml`:
+1. **Edit** `data/Alexander_Gutheil_CV.yaml`:
 
    ```yaml
    cv:
@@ -118,7 +121,7 @@ bun run resume:generate
 
 ## Example: Adding a New Skill
 
-1. **Edit** `data/resume.yaml`:
+1. **Edit** `data/Alexander_Gutheil_CV.yaml`:
 
    ```yaml
    cv:
@@ -152,7 +155,7 @@ bun run resume:generate
 
 1. Ensure RenderCV is installed: `pip3 install "rendercv[full]"`
 2. Check YAML syntax is valid
-3. Run `bun run resume:generate` separately to see errors
+3. Run `bun run cv:generate` separately to see errors
 
 ### Projects missing
 
