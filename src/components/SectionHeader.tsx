@@ -15,8 +15,9 @@ export function SectionHeader({
 }: SectionHeaderProps) {
   return (
     <header
+      data-section-header
       className={cn(
-        "mb-12 scroll-fade-in",
+        "mb-12",
         align === "center" && "text-center",
         className,
       )}

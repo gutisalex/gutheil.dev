@@ -1,3 +1,4 @@
+import { ScrollRevealGroup } from "@/components/motion/ScrollRevealGroup";
 import { SectionHeader } from "@/components/SectionHeader";
 import type { Project } from "@/lib/content";
 import { ProjectCard } from "./ProjectCard";
@@ -17,10 +18,12 @@ export function Projects({ projects }: ProjectsProps) {
       id="projects"
       className="relative w-full border-t border-border/60 bg-muted/30 px-4 py-20 sm:py-28"
     >
-      <div className="mx-auto max-w-6xl">
-        <SectionHeader label="04 — Projects" title="Selected work" />
+      <ScrollRevealGroup className="mx-auto max-w-6xl" stagger={0.14}>
+        <div data-reveal>
+          <SectionHeader label="04 — Projects" title="Selected work" />
+        </div>
 
-        <div className="hidden gap-6 md:grid md:grid-cols-2 scroll-stagger">
+        <div className="hidden gap-6 md:grid md:grid-cols-2">
           {projects.map((project) => (
             <ProjectCard key={project.title} project={project} />
           ))}
@@ -29,7 +32,7 @@ export function Projects({ projects }: ProjectsProps) {
         <div className="md:hidden">
           <ProjectsCarousel projects={projects} />
         </div>
-      </div>
+      </ScrollRevealGroup>
     </section>
   );
 }

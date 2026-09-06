@@ -158,6 +158,36 @@
   section[id] {
     scroll-margin-top: 5rem;
   }
+
+  @media (prefers-reduced-motion: no-preference) {
+    [data-hero-item] {
+      opacity: 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    [data-hero-item],
+    [data-reveal],
+    [data-timeline-entry],
+    [data-timeline-dot],
+    [data-section-header],
+    .scroll-fade-in,
+    .scroll-slide-up,
+    .scroll-slide-down,
+    .scroll-zoom-in {
+      opacity: 1 !important;
+      transform: none !important;
+      animation: none !important;
+    }
+
+    [data-timeline-line] {
+      transform: scaleY(1) !important;
+    }
+  }
 }
 
 @layer utilities {

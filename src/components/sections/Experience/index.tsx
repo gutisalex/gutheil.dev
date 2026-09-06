@@ -1,5 +1,15 @@
+"use client";
+
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useRef } from "react";
 import { SectionHeader } from "@/components/SectionHeader";
+import { revealDuration, revealEase } from "@/lib/motion/constants";
+import { usePrefersReducedMotion } from "@/lib/motion/usePrefersReducedMotion";
 import type { Experience as ExperienceType } from "@/lib/content";
+
+gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 type ExperienceProps = {
   experiences: ExperienceType[];
@@ -30,12 +40,108 @@ function formatDateRange(
 }
 
 export function Experience({ experiences }: ExperienceProps) {
+  const sectionRef = useRef<HTMLElement>(null);
+  const timelineRef = useRef<HTMLDivElement>(null);
+  const prefersReducedMotion = usePrefersReducedMotion();
+
   const sortedExperiences = [...experiences].sort(
     (a, b) => (a.order ?? 0) - (b.order ?? 0),
   );
 
+  useGSAP(
+    () => {
+      if (prefersReducedMotion || !sectionRef.current || !timelineRef.current) {
+        return;
+      }
+
+      const line = timelineRef.current.querySelector<HTMLElement>(
+        "[data-timeline-line]",
+      );
+      const entries = gsap.utils.toArray<HTMLElement>(
+        timelineRef.current.querySelectorAll("[data-timeline-entry]"),
+      );
+      const dots = gsap.utils.toArray<HTMLElement>(
+        timelineRef.current.querySelectorAll("[data-timeline-dot]"),
+      );
+
+      if (line) {
+        gsap.set(line, { scaleY: 0, transformOrigin: "top center" });
+        gsap.to(line, {
+          scaleY: 1,
+          ease: "none",
+          scrollTrigger: {
+            trigger: timelineRef.current,
+            start: "top 75%",
+            end: "bottom 55%",
+            scrub: 0.45,
+          },
+        });
+      }
+
+      const header = sectionRef.current.querySelector<HTMLElement>(
+        "[data-section-header]",
+      );
+
+      if (header) {
+        gsap.fromTo(
+          header,
+          { opacity: 0, y: 36 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: revealDuration,
+            ease: revealEase,
+            scrollTrigger: {
+              trigger: header,
+              start: "top 85%",
+              toggleActions: "play none none none",
+            },
+          },
+        );
+      }
+
+      if (entries.length > 0) {
+        gsap.set(entries, { opacity: 0, y: 40 });
+        gsap.set(dots, { opacity: 0, scale: 0.4 });
+
+        entries.forEach((entry, index) => {
+          const dot = dots[index];
+
+          gsap.to(entry, {
+            opacity: 1,
+            y: 0,
+            duration: revealDuration,
+            ease: revealEase,
+            scrollTrigger: {
+              trigger: entry,
+              start: "top 88%",
+              toggleActions: "play none none reverse",
+            },
+          });
+
+          if (dot) {
+            gsap.to(dot, {
+              opacity: 1,
+              scale: 1,
+              duration: 0.5,
+              delay: 0.08,
+              ease: "back.out(1.6)",
+              scrollTrigger: {
+                trigger: entry,
+                start: "top 88%",
+                toggleActions: "play none none reverse",
+              },
+            });
+          }
+        });
+      }
+    },
+    { scope: sectionRef, dependencies: [prefersReducedMotion, experiences] },
+  );
+
   return (
     <section
+      ref={sectionRef}
       id="experience"
       className="relative w-full border-t border-border/60 bg-muted/30 px-4 py-20 sm:py-28"
     >
@@ -45,9 +151,10 @@ export function Experience({ experiences }: ExperienceProps) {
           title="Professional experience"
         />
 
-        <div className="relative scroll-stagger">
+        <div ref={timelineRef} className="relative">
           <div
-            className="absolute left-0 top-2 hidden h-[calc(100%-1rem)] w-px bg-border sm:block"
+            data-timeline-line
+            className="absolute left-0 top-2 hidden h-[calc(100%-1rem)] w-px origin-top bg-border sm:block"
             aria-hidden="true"
           />
 
@@ -74,9 +181,11 @@ export function Experience({ experiences }: ExperienceProps) {
               return (
                 <article
                   key={experienceKey}
-                  className="group relative scroll-slide-up sm:pl-10"
+                  data-timeline-entry
+                  className="group relative sm:pl-10"
                 >
                   <div
+                    data-timeline-dot
                     className="absolute left-0 top-2 hidden size-2 -translate-x-1/2 bg-primary ring-4 ring-background sm:block"
                     aria-hidden="true"
                   />

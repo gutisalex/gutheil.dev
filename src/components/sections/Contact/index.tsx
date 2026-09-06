@@ -1,3 +1,4 @@
+import { ScrollRevealGroup } from "@/components/motion/ScrollRevealGroup";
 import { LinkedinIcon } from "@/components/LinkedinIcon";
 import { SectionHeader } from "@/components/SectionHeader";
 import { Button } from "@/components/ui/button";
@@ -18,34 +19,45 @@ export function Contact({ hero }: ContactProps) {
     >
       <div className="hero-mesh absolute inset-0 opacity-60" />
 
-      <div className="relative mx-auto max-w-6xl">
-        <SectionHeader
-          label="05 — Contact"
-          title="Get in touch"
-          align="center"
-        />
-        <p className="scroll-slide-up mx-auto mb-10 max-w-2xl text-pretty text-center text-lg text-muted-foreground">
+      <ScrollRevealGroup
+        className="relative mx-auto max-w-6xl"
+        stagger={0.14}
+      >
+        <div data-reveal>
+          <SectionHeader
+            label="05 — Contact"
+            title="Get in touch"
+            align="center"
+          />
+        </div>
+        <p
+          data-reveal
+          className="mx-auto mb-10 max-w-2xl text-pretty text-center text-lg text-muted-foreground"
+        >
           Open to new opportunities and interesting projects. Send a message or
           connect on LinkedIn.
         </p>
 
-        <div className="scroll-slide-up mx-auto mb-10 max-w-xl surface-elevated p-6 sm:p-8">
+        <div
+          data-reveal
+          className="mx-auto mb-10 max-w-xl surface-elevated p-6 transition-transform duration-300 hover:-translate-y-0.5 sm:p-8"
+        >
           <ContactForm />
         </div>
 
-        <div className="scroll-slide-up text-center">
+        <div data-reveal className="text-center">
           <a href={linkedInUrl} target="_blank" rel="noopener noreferrer">
             <Button
               size="lg"
               variant="outline"
-              className="mx-auto gap-2 shadow-premium"
+              className="mx-auto gap-2 shadow-premium transition-transform duration-200 hover:scale-[1.02]"
             >
               <LinkedinIcon className="size-4" />
               Connect on LinkedIn
             </Button>
           </a>
         </div>
-      </div>
+      </ScrollRevealGroup>
     </section>
   );
 }

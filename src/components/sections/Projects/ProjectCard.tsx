@@ -20,7 +20,10 @@ export function ProjectCard({ project }: ProjectCardProps) {
   const image = project.image;
 
   return (
-    <article className="group scroll-zoom-in flex h-full flex-col overflow-hidden surface-elevated transition-all duration-300 hover:-translate-y-1 hover:shadow-premium-lg">
+    <article
+      data-reveal
+      className="group flex h-full flex-col overflow-hidden surface-elevated transition-all duration-300 hover:-translate-y-1.5 hover:scale-[1.01] hover:shadow-premium-lg"
+    >
       {image?.url && (
         <div className="relative aspect-3/2 overflow-hidden">
           <Image
