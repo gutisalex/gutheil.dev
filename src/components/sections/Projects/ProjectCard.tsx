@@ -4,7 +4,6 @@ import { ExternalLink, GitBranch } from "lucide-react";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
 import type { Project } from "@/lib/content";
 
 type ProjectCardProps = {
@@ -21,42 +20,47 @@ export function ProjectCard({ project }: ProjectCardProps) {
   const image = project.image;
 
   return (
-    <Card className="flex flex-col overflow-hidden group hover:shadow-lg transition-all duration-300 border-border hover:border-primary/20 py-0 w-full h-full scroll-zoom-in">
+    <article className="group scroll-zoom-in flex h-full flex-col overflow-hidden surface-elevated transition-all duration-300 hover:-translate-y-1 hover:shadow-premium-lg">
       {image?.url && (
-        <div className="relative w-full aspect-3/2 overflow-hidden">
+        <div className="relative aspect-3/2 overflow-hidden">
           <Image
             src={image.url}
             alt={image.title || title}
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-            className="object-cover group-hover:scale-105 transition-transform duration-300"
+            className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
           />
+          <div className="absolute inset-0 bg-linear-to-t from-background/40 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
         </div>
       )}
       <div className="flex flex-1 flex-col p-6">
-        <h3 className="mb-2 text-xl font-semibold group-hover:text-primary transition-colors duration-200">
+        <h3 className="mb-2 text-lg font-semibold tracking-tight transition-colors duration-200 group-hover:text-primary">
           {title}
         </h3>
-        <p className="mb-4 flex-1 text-sm text-muted-foreground">
+        <p className="mb-5 flex-1 text-pretty text-sm leading-relaxed text-muted-foreground">
           {description}
         </p>
-        <div className="mb-4 flex flex-wrap gap-2">
+        <div className="mb-5 flex flex-wrap gap-1.5">
           {technologies.map((tech: string) => (
-            <Badge key={tech} variant="outline" className="text-xs">
+            <Badge
+              key={tech}
+              variant="outline"
+              className="bg-background/50 text-[0.7rem] font-normal"
+            >
               {tech}
             </Badge>
           ))}
         </div>
-        <div className="flex gap-2">
+        <div className="mt-auto flex flex-wrap gap-2">
           {projectUrl && (
             <a href={projectUrl} target="_blank" rel="noopener noreferrer">
               <Button
                 variant="outline"
                 size="sm"
-                className="flex items-center gap-2"
+                className="gap-1.5 bg-background/60"
               >
-                <ExternalLink className="h-4 w-4" />
-                View Project
+                <ExternalLink className="size-3.5" />
+                View project
               </Button>
             </a>
           )}
@@ -65,15 +69,15 @@ export function ProjectCard({ project }: ProjectCardProps) {
               <Button
                 variant="outline"
                 size="sm"
-                className="flex items-center gap-2"
+                className="gap-1.5 bg-background/60"
               >
-                <GitBranch className="h-4 w-4" />
+                <GitBranch className="size-3.5" />
                 GitHub
               </Button>
             </a>
           )}
         </div>
       </div>
-    </Card>
+    </article>
   );
 }

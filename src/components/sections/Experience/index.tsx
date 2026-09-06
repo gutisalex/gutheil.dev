@@ -1,4 +1,4 @@
-import { Separator } from "@/components/ui/separator";
+import { SectionHeader } from "@/components/SectionHeader";
 import type { Experience as ExperienceType } from "@/lib/content";
 
 type ExperienceProps = {
@@ -8,7 +8,7 @@ type ExperienceProps = {
 function formatDate(dateString: string): string {
   const date = new Date(dateString);
   return date.toLocaleDateString("en-US", {
-    month: "long",
+    month: "short",
     year: "numeric",
   });
 }
@@ -35,83 +35,99 @@ export function Experience({ experiences }: ExperienceProps) {
   );
 
   return (
-    <section id="experience" className="w-full bg-muted/20 px-4 py-16 sm:py-24">
-      <div className="mx-auto max-w-4xl">
-        <h2 className="mb-12 text-3xl font-bold tracking-tight sm:text-4xl relative inline-block scroll-fade-in">
-          Professional Experience
-          <span className="absolute -bottom-2 left-0 h-1 w-12 bg-primary rounded-full" />
-        </h2>
+    <section
+      id="experience"
+      className="relative w-full border-t border-border/60 bg-muted/30 px-4 py-20 sm:py-28"
+    >
+      <div className="mx-auto max-w-6xl">
+        <SectionHeader
+          label="02 — Experience"
+          title="Professional experience"
+        />
 
-        <div className="space-y-8 scroll-stagger">
-          {sortedExperiences.map((experience, index) => {
-            const company = experience.company ?? "";
-            const position = experience.position ?? "";
-            const location = experience.location ?? "";
-            const startDate = experience.startDate
-              ? typeof experience.startDate === "string"
-                ? experience.startDate
-                : new Date(experience.startDate).toISOString().split("T")[0]
-              : "";
-            const endDate = experience.endDate
-              ? typeof experience.endDate === "string"
-                ? experience.endDate
-                : new Date(experience.endDate).toISOString().split("T")[0]
-              : undefined;
-            const isCurrent = experience.isCurrent ?? false;
-            const description = experience.description ?? "";
-            const achievements = experience.achievements ?? undefined;
+        <div className="relative scroll-stagger">
+          <div
+            className="absolute left-0 top-2 hidden h-[calc(100%-1rem)] w-px bg-border sm:block"
+            aria-hidden="true"
+          />
 
-            return (
-              <div
-                key={`${experience.company}-${experience.position}-${index}`}
-                className="group scroll-slide-up"
-              >
-                <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
-                  <div className="flex-1">
-                    <h3 className="text-xl font-semibold group-hover:text-primary transition-colors duration-200">
-                      {position}
-                    </h3>
-                    <p className="text-lg font-medium text-muted-foreground">
-                      {company}
+          <div className="space-y-12 sm:space-y-16">
+            {sortedExperiences.map((experience) => {
+              const company = experience.company ?? "";
+              const position = experience.position ?? "";
+              const location = experience.location ?? "";
+              const startDate = experience.startDate
+                ? typeof experience.startDate === "string"
+                  ? experience.startDate
+                  : new Date(experience.startDate).toISOString().split("T")[0]
+                : "";
+              const endDate = experience.endDate
+                ? typeof experience.endDate === "string"
+                  ? experience.endDate
+                  : new Date(experience.endDate).toISOString().split("T")[0]
+                : undefined;
+              const isCurrent = experience.isCurrent ?? false;
+              const description = experience.description ?? "";
+              const achievements = experience.achievements ?? undefined;
+              const experienceKey = `${company}-${position}-${startDate}`;
+
+              return (
+                <article
+                  key={experienceKey}
+                  className="group relative scroll-slide-up sm:pl-10"
+                >
+                  <div
+                    className="absolute left-0 top-2 hidden size-2 -translate-x-1/2 bg-primary ring-4 ring-background sm:block"
+                    aria-hidden="true"
+                  />
+
+                  <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+                    <div className="space-y-1">
+                      <h3 className="text-xl font-semibold tracking-tight transition-colors duration-200 group-hover:text-primary">
+                        {position}
+                      </h3>
+                      <p className="text-base font-medium text-foreground/80">
+                        {company}
+                      </p>
+                      {location && (
+                        <p className="text-sm text-muted-foreground">
+                          {location}
+                        </p>
+                      )}
+                    </div>
+                    <time className="shrink-0 font-mono text-xs tabular-nums tracking-wide text-muted-foreground sm:text-right sm:text-sm">
+                      {formatDateRange(startDate, endDate, isCurrent)}
+                    </time>
+                  </div>
+
+                  <div className="mt-5 space-y-4">
+                    <p className="max-w-3xl text-pretty leading-relaxed text-muted-foreground">
+                      {description}
                     </p>
-                    <p className="text-sm text-muted-foreground">{location}</p>
-                  </div>
-                  <div className="text-sm font-medium text-muted-foreground sm:text-right">
-                    {formatDateRange(startDate, endDate, isCurrent)}
-                  </div>
-                </div>
-
-                <div className="mt-4 space-y-2">
-                  <p className="text-muted-foreground leading-relaxed">
-                    {description}
-                  </p>
-                  {achievements && (
-                    <div className="mt-4">
-                      <ul className="list-disc space-y-1 pl-6 text-muted-foreground">
+                    {achievements && (
+                      <ul className="max-w-3xl space-y-2 border-l border-border/80 pl-4 text-muted-foreground">
                         {achievements
                           .split("\n")
                           .map((achievement) => achievement.trim())
                           .filter((achievement) => achievement.length > 0)
                           .map((achievement) => {
-                            // Remove leading "- " if present
                             const cleaned = achievement.replace(/^-\s*/, "");
                             return (
-                              <li key={achievement} className="leading-relaxed">
+                              <li
+                                key={achievement}
+                                className="text-pretty leading-relaxed"
+                              >
                                 {cleaned}
                               </li>
                             );
                           })}
                       </ul>
-                    </div>
-                  )}
-                </div>
-
-                {index < sortedExperiences.length - 1 && (
-                  <Separator className="mt-8" />
-                )}
-              </div>
-            );
-          })}
+                    )}
+                  </div>
+                </article>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>

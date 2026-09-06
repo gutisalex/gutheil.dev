@@ -1,3 +1,4 @@
+import { SectionHeader } from "@/components/SectionHeader";
 import { Badge } from "@/components/ui/badge";
 import type { SkillCategory } from "@/lib/content";
 
@@ -11,14 +12,14 @@ export function Skills({ skillCategories }: SkillsProps) {
   );
 
   return (
-    <section id="skills" className="w-full bg-muted/30 px-4 py-16 sm:py-24">
-      <div className="mx-auto max-w-4xl">
-        <h2 className="mb-12 text-3xl font-bold tracking-tight sm:text-4xl relative inline-block scroll-fade-in">
-          Technical Skills
-          <span className="absolute -bottom-2 left-0 h-1 w-12 bg-primary rounded-full" />
-        </h2>
+    <section
+      id="skills"
+      className="relative w-full border-t border-border/60 px-4 py-20 sm:py-28"
+    >
+      <div className="mx-auto max-w-6xl">
+        <SectionHeader label="03 — Skills" title="Technical skills" />
 
-        <div className="grid gap-8 sm:grid-cols-2 scroll-stagger">
+        <div className="grid gap-6 sm:grid-cols-2 scroll-stagger">
           {sortedCategories.map((category) => {
             const categoryName = category.categoryName ?? "";
             const skills =
@@ -27,9 +28,9 @@ export function Skills({ skillCategories }: SkillsProps) {
             return (
               <div
                 key={category.categoryName}
-                className="space-y-3 group scroll-slide-up"
+                className="group scroll-slide-up surface-elevated p-6 transition-all duration-300 hover:shadow-premium"
               >
-                <h3 className="text-lg font-semibold group-hover:text-primary transition-colors duration-200">
+                <h3 className="mb-4 text-sm font-semibold uppercase tracking-[0.12em] text-foreground/90 transition-colors duration-200 group-hover:text-primary">
                   {categoryName}
                 </h3>
                 <div className="flex flex-wrap gap-2">
@@ -37,7 +38,7 @@ export function Skills({ skillCategories }: SkillsProps) {
                     <Badge
                       key={skill}
                       variant="secondary"
-                      className="hover:bg-primary/10 hover:text-primary hover:border-primary/20 transition-all duration-200 cursor-default"
+                      className="cursor-default bg-background/80 font-normal transition-all duration-200 hover:bg-primary/10 hover:text-primary"
                     >
                       {skill}
                     </Badge>

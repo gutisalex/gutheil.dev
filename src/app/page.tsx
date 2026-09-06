@@ -45,7 +45,7 @@ export default async function Home() {
     <>
       <StructuredData hero={hero} />
       <Navigation />
-      <main className="min-h-screen">
+      <main id="main-content" className="min-h-screen">
         <Hero hero={hero} contactEmail={contactEmail} />
         <About about={about} />
         <ExperienceSection experiences={experiences} />

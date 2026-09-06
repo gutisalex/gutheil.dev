@@ -1,24 +1,12 @@
 "use client";
 
-import { ChevronDown, Download } from "lucide-react";
+import { ArrowDown, Download } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { LinkedinIcon } from "@/components/LinkedinIcon";
 import { Button } from "@/components/ui/button";
 import type { HeroSection } from "@/lib/content";
 import { cn, obfuscateEmail } from "@/lib/utils";
-
-// LinkedIn icon component (replacement for deprecated lucide-react Linkedin icon)
-const LinkedinIcon = ({ className }: { className?: string }) => (
-  <svg
-    className={className}
-    fill="currentColor"
-    viewBox="0 0 24 24"
-    xmlns="http://www.w3.org/2000/svg"
-    aria-hidden="true"
-  >
-    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-  </svg>
-);
 
 type HeroProps = {
   hero: HeroSection;
@@ -39,82 +27,99 @@ export function Hero({ hero, contactEmail }: HeroProps) {
       setIsScrolled(window.scrollY > 50);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
     <section
       id="home"
-      className="relative flex min-h-screen flex-col items-center justify-center px-4 py-16 overflow-hidden"
+      className="relative flex min-h-dvh flex-col justify-center overflow-hidden px-4 py-24 sm:py-28"
     >
-      {/* Subtle gradient background */}
-      <div className="absolute inset-0 bg-linear-to-b from-primary/5 via-transparent to-transparent dark:from-primary/10" />
+      <div className="hero-mesh absolute inset-0" />
+      <div className="absolute inset-x-0 bottom-0 h-px bg-linear-to-r from-transparent via-border to-transparent" />
 
-      <div className="relative flex w-full max-w-4xl flex-col items-center gap-4 lg:gap-8 text-center">
-        {profileImage?.url && (
-          <div className="relative h-48 w-48 overflow-hidden rounded-full sm:h-56 sm:w-56 ring-4 ring-primary/10 dark:ring-primary/20 shadow-lg animate-in fade-in zoom-in duration-700">
-            <Image
-              src={profileImage.url}
-              alt={profileImage.title || name}
-              fill
-              sizes="(max-width: 640px) 192px, 224px"
-              className="object-cover"
-              priority
-            />
+      <div className="relative mx-auto grid w-full max-w-6xl gap-10 lg:grid-cols-[1fr_auto] lg:items-center lg:gap-16">
+        <div className="space-y-6 text-center lg:text-left">
+          <p className="animate-in fade-in font-mono text-xs font-medium uppercase tracking-[0.25em] text-primary/80 duration-700">
+            Portfolio
+          </p>
+
+          <div className="animate-in fade-in slide-in-from-bottom-4 space-y-4 duration-700 delay-150">
+            <h1 className="text-balance text-4xl font-semibold tracking-[-0.03em] sm:text-5xl lg:text-6xl xl:text-7xl">
+              {name}
+            </h1>
+            <p className="text-pretty text-lg font-medium text-muted-foreground sm:text-xl lg:max-w-xl">
+              {title}
+            </p>
           </div>
-        )}
 
-        <div className="space-y-4 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-150">
-          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl bg-linear-to-r from-foreground to-foreground/80 bg-clip-text">
-            {name}
-          </h1>
-          <p className="text-xl text-muted-foreground sm:text-2xl">{title}</p>
-          <div className="flex flex-col items-center gap-2 text-sm text-muted-foreground sm:flex-row sm:justify-center">
+          <div className="animate-in fade-in slide-in-from-bottom-4 flex flex-col items-center gap-1 text-sm text-muted-foreground duration-700 delay-200 sm:flex-row sm:justify-center lg:items-start lg:justify-start">
             <span>{location}</span>
-            <span className="hidden sm:inline">•</span>
-            <a
-              href={`mailto:${email}`}
-              className="hover:text-foreground transition-colors duration-200"
-            >
-              {obfuscateEmail(email)}
+            {email && (
+              <>
+                <span className="hidden sm:inline text-border">/</span>
+                <a
+                  href={`mailto:${email}`}
+                  className="font-mono text-xs tracking-wide transition-colors duration-200 hover:text-foreground sm:text-sm"
+                >
+                  {obfuscateEmail(email)}
+                </a>
+              </>
+            )}
+          </div>
+
+          <div className="animate-in fade-in slide-in-from-bottom-4 flex flex-col items-center gap-3 pt-2 duration-700 delay-300 sm:flex-row sm:justify-center lg:justify-start">
+            <a href={linkedInUrl} target="_blank" rel="noopener noreferrer">
+              <Button size="lg" className="min-w-44 gap-2 shadow-premium">
+                <LinkedinIcon className="size-4" />
+                LinkedIn
+              </Button>
+            </a>
+            <a href="/api/resume/download" download="Alexander_Gutheil_CV.pdf">
+              <Button
+                size="lg"
+                variant="outline"
+                className="min-w-44 gap-2 shadow-premium"
+              >
+                <Download className="size-4" />
+                Download CV
+              </Button>
             </a>
           </div>
         </div>
 
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300">
-          <a href={linkedInUrl} target="_blank" rel="noopener noreferrer">
-            <Button
-              size="lg"
-              className="mt-4 flex items-center gap-2 shadow-md hover:shadow-lg transition-all duration-200"
-            >
-              <LinkedinIcon className="h-5 w-5" />
-              View LinkedIn Profile
-            </Button>
-          </a>
-          <a href="/api/resume/download" download="Alexander_Gutheil_CV.pdf">
-            <Button
-              size="lg"
-              variant="outline"
-              className="mt-4 flex items-center gap-2 shadow-md hover:shadow-lg transition-all duration-200"
-            >
-              <Download className="h-5 w-5" />
-              Download Resume
-            </Button>
-          </a>
-        </div>
+        {profileImage?.url && (
+          <div className="animate-in fade-in zoom-in mx-auto duration-700 lg:mx-0">
+            <div className="relative">
+              <div className="absolute -inset-3 bg-linear-to-br from-primary/20 via-transparent to-primary/10 blur-2xl" />
+              <div className="relative size-48 overflow-hidden ring-1 ring-foreground/10 shadow-premium-lg sm:size-56 lg:size-64">
+                <Image
+                  src={profileImage.url}
+                  alt={profileImage.title || name}
+                  fill
+                  sizes="(max-width: 640px) 192px, (max-width: 1024px) 224px, 256px"
+                  className="object-cover"
+                  priority
+                />
+              </div>
+            </div>
+          </div>
+        )}
       </div>
 
-      {/* Scroll indicator */}
       <a
         href="#about"
         className={cn(
-          "absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center justify-center text-muted-foreground hover:text-foreground transition-all duration-300",
-          isScrolled ? "opacity-0 pointer-events-none" : "opacity-100",
+          "absolute bottom-8 left-1/2 flex -translate-x-1/2 flex-col items-center gap-2 text-muted-foreground transition-all duration-300 hover:text-foreground",
+          isScrolled ? "pointer-events-none opacity-0" : "opacity-100",
         )}
-        aria-label="Scroll to next section"
+        aria-label="Scroll to about section"
       >
-        <ChevronDown className="h-10 w-10 animate-pulse-slow" />
+        <span className="font-mono text-[0.65rem] uppercase tracking-[0.2em]">
+          Scroll
+        </span>
+        <ArrowDown className="size-5 animate-pulse-slow" />
       </a>
     </section>
   );
