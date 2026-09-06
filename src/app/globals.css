@@ -389,6 +389,24 @@
       0 16px 48px hsl(var(--shadow-color) / 12%);
   }
 
+  .cursor-glow {
+    background: radial-gradient(
+      closest-side,
+      color-mix(in oklch, var(--primary) 9%, transparent),
+      color-mix(in oklch, var(--primary) 3%, transparent) 45%,
+      transparent 72%
+    );
+  }
+
+  .dark .cursor-glow {
+    background: radial-gradient(
+      closest-side,
+      color-mix(in oklch, var(--primary) 13%, transparent),
+      color-mix(in oklch, var(--primary) 4%, transparent) 45%,
+      transparent 72%
+    );
+  }
+
   .hero-mesh {
     background:
       radial-gradient(

@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { CursorGlow } from "@/components/CursorGlow";
 import { Footer } from "@/components/Footer";
 import { ThemeProvider } from "@/components/ThemeProvider";
 
@@ -87,6 +88,7 @@ export default function RootLayout({
           Skip to content
         </a>
         <ThemeProvider>
+          <CursorGlow />
           {children}
           <Footer />
         </ThemeProvider>
