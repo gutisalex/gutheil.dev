@@ -105,7 +105,7 @@ export function Experience({ experiences }: ExperienceProps) {
                       {description}
                     </p>
                     {achievements && (
-                      <ul className="max-w-3xl space-y-2 border-l border-border/80 pl-4 text-muted-foreground">
+                      <ul className="max-w-3xl space-y-2 text-muted-foreground">
                         {achievements
                           .split("\n")
                           .map((achievement) => achievement.trim())
@@ -115,9 +115,13 @@ export function Experience({ experiences }: ExperienceProps) {
                             return (
                               <li
                                 key={achievement}
-                                className="text-pretty leading-relaxed"
+                                className="flex gap-3 text-pretty leading-relaxed"
                               >
-                                {cleaned}
+                                <span
+                                  className="mt-[0.65em] size-1 shrink-0 bg-primary/35"
+                                  aria-hidden="true"
+                                />
+                                <span>{cleaned}</span>
                               </li>
                             );
                           })}
