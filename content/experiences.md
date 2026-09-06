@@ -8,23 +8,23 @@ isCurrent: true
 order: 1
 ---
 
-Leading multiple frontend teams, mentoring developers, and driving innovation through modern technology adoption, performance optimization, and AI-enhanced development practices
+AI Specialist leading brandung's AI-forward initiatives while continuing to lead frontend teams, mentor developers, and drive platform modernization through modern technology adoption and performance optimization
 
 ## Achievements
 
-- Continue leading the Deutsche Glasfaser frontend team, driving technical decisions and architecture evolution for the ongoing platform modernization
+- Serve as AI Specialist at brandung, leading the company's AI-forward work and integrating AI-enhanced practices into frontend delivery
+- Lead the Deutsche Glasfaser frontend team, driving technical decisions and architecture evolution for the ongoing platform modernization
 - Lead an external agency team working on the relaunch of the Deutsche Glasfaser checkout system, conducting code reviews and ensuring code quality and architectural consistency
 - Mentor team members and establish development best practices
 - Successfully migrated the platform to Next.js 16 and React 19, ensuring seamless transition and improved performance
 - Implemented performance optimizations including Redis caching, image optimization, and bundle analysis
 - Set up CI/CD pipelines and automated deployment processes to streamline development workflows
-- Extensive work with AI tools and technologies, developing expertise in leveraging AI to enhance development workflows and productivity
 
 ---
 
 ---
 company: brandung GmbH
-position: Frontend Developer
+position: Lead Frontend Developer
 location: Cologne, Germany
 startDate: 2021-01-01
 endDate: 2024-12-01
@@ -32,12 +32,12 @@ isCurrent: false
 order: 2
 ---
 
-Worked on various frontend projects including Flutter mobile development, Nuxt.js e-commerce relaunches, and Next.js CMS integrations. Progressed to Lead Frontend Developer role, leading the Deutsche Glasfaser platform modernization.
+Led frontend teams on enterprise projects including Deutsche Glasfaser platform modernization, Flutter mobile development, and Nuxt.js e-commerce relaunches
 
 ## Achievements
 
 - Built a Flutter mobile application for Tchibo's wlan to go service
-- Contributed to the About You Outlet relaunch as part of a team, working with Nuxt.js, Scayle, and Storybook
+- Contributed to the About You Outlet relaunch as part of a team, working with Nuxt.js, Scayle, and Storyblok
 - Participated in the 1. FC Köln website relaunch, a Next.js project integrated with Contentful CMS
 - Led the frontend team for the Deutsche Glasfaser GmbH relaunch, a major enterprise project migrating from TYPO3 to Next.js with Contentful CMS
 - Integrated Contentful CMS via GraphQL with automated type generation for type-safe content management

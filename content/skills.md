@@ -1,6 +1,6 @@
 ---
 categoryName: Frontend Frameworks & Libraries
-skills: ["Vue.js","Nuxt.js","React","Next.js","TypeScript","JavaScript (ES6+)"]
+skills: ["React","Next.js","TypeScript","Vue.js","Nuxt.js","JavaScript (ES6+)"]
 order: 1
 ---
 
@@ -18,7 +18,7 @@ order: 3
 
 ---
 categoryName: Styling & Design
-skills: ["Tailwind CSS","CSS3","HTML5","Responsive Design"]
+skills: ["Tailwind CSS v4","shadcn/ui","CSS3","HTML5","Responsive Design"]
 order: 4
 ---
 
@@ -30,13 +30,13 @@ order: 5
 
 ---
 categoryName: Build Tools & Testing
-skills: ["Webpack","Vite","Playwright","Vitest","Jest","Storybook","Git","CI/CD"]
+skills: ["Biome","Webpack","Vite","Playwright","Vitest","Jest","Storybook","Git","CI/CD"]
 order: 6
 ---
 
 ---
 categoryName: Tools & Platforms
-skills: ["Docker","Vercel","Redis","Stripe","Usercentrics","Ninetailed"]
+skills: ["Bun","Docker","Vercel","Redis","Stripe","Usercentrics","Ninetailed"]
 order: 7
 ---
 

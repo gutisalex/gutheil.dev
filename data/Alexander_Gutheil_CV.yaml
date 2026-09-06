@@ -8,7 +8,7 @@ cv:
       username: alexander-gutheil
   sections:
     Professional Summary:
-      - Senior Frontend Developer with 6+ years of focused experience building high-performance web and mobile applications, backed by a diverse technical background spanning system administration and 3D/VR development. Expert in Vue.js and Nuxt.js with extensive experience in React and modern JavaScript frameworks. Proven track record of leading frontend teams and delivering enterprise-level solutions. Specialized in CMS migrations, performance optimization, and modern meta-frameworks. Currently leading frontend teams at brandung GmbH, successfully delivering large-scale migrations and platform modernizations.
+      - Senior Frontend Developer and AI Specialist with 7+ years of focused experience building high-performance web and mobile applications, backed by a diverse technical background spanning system administration and 3D/VR development. Expert in React, Next.js, and TypeScript with extensive experience in Vue.js and Nuxt.js. Proven track record of leading frontend teams and delivering enterprise-level solutions. Specialized in CMS migrations, performance optimization, and AI-forward development practices. Currently serving as AI Specialist and Senior Frontend Developer at brandung GmbH, leading the company's AI initiatives while driving large-scale platform modernizations.
 
     experience:
       - company: brandung GmbH
@@ -16,24 +16,24 @@ cv:
         location: Cologne, Germany
         start_date: 2025-01
         end_date: present
-        description: Leading multiple frontend teams, mentoring developers, and driving innovation through modern technology adoption, performance optimization, and AI-enhanced development practices
+        description: AI Specialist leading brandung's AI-forward initiatives while continuing to lead frontend teams, mentor developers, and drive platform modernization through modern technology adoption and performance optimization
         highlights:
-          - Continue leading the Deutsche Glasfaser frontend team, driving technical decisions and architecture evolution for the ongoing platform modernization
+          - Serve as AI Specialist at brandung, leading the company's AI-forward work and integrating AI-enhanced practices into frontend delivery
+          - Lead the Deutsche Glasfaser frontend team, driving technical decisions and architecture evolution for the ongoing platform modernization
           - Lead an external agency team working on the relaunch of the Deutsche Glasfaser checkout system, conducting code reviews and ensuring code quality and architectural consistency
           - Mentor team members and establish development best practices
           - Successfully migrated the platform to Next.js 16 and React 19, ensuring seamless transition and improved performance
           - Implemented performance optimizations including Redis caching, image optimization, and bundle analysis
           - Set up CI/CD pipelines and automated deployment processes to streamline development workflows
-          - Extensive work with AI tools and technologies, developing expertise in leveraging AI to enhance development workflows and productivity
       - company: brandung GmbH
-        position: Frontend Developer
+        position: Lead Frontend Developer
         location: Cologne, Germany
         start_date: 2021-01
         end_date: 2024-12
-        description: Worked on various frontend projects including Flutter mobile development, Nuxt.js e-commerce relaunches, and Next.js CMS integrations. Progressed to Lead Frontend Developer role, leading the Deutsche Glasfaser platform modernization.
+        description: Led frontend teams on enterprise projects including Deutsche Glasfaser platform modernization, Flutter mobile development, and Nuxt.js e-commerce relaunches
         highlights:
           - Built a Flutter mobile application for Tchibo's wlan to go service
-          - Contributed to the About You Outlet relaunch as part of a team, working with Nuxt.js, Scayle, and Storybook
+          - Contributed to the About You Outlet relaunch as part of a team, working with Nuxt.js, Scayle, and Storyblok
           - Participated in the 1. FC Köln website relaunch, a Next.js project integrated with Contentful CMS
           - Led the frontend team for the Deutsche Glasfaser GmbH relaunch, a major enterprise project migrating from TYPO3 to Next.js with Contentful CMS
           - Integrated Contentful CMS via GraphQL with automated type generation for type-safe content management
@@ -104,11 +104,9 @@ cv:
       - institution: University of Kassel
         area: Computer Science
         degree: Master of Science
-        date:
         start_date: 2012-10
         end_date: 2017-02
         location: Kassel, Germany
-        summary:
         highlights:
           - "Specialization: Practical Computer Science with focus on Computer Graphics and Virtual Reality"
           - "Final Grade: 1.8 (German grading system)"
@@ -116,30 +114,32 @@ cv:
       - institution: University of Kassel
         area: Computer Science
         degree: Bachelor of Science
-        date:
         start_date: 2003-10
         end_date: 2010-10
         location: Kassel, Germany
-        summary:
         highlights:
           - "Specialization: Practical Computer Science with focus on Web Development"
           - "Final Grade: 2.6 (German grading system)"
 
+    certifications:
+      - name: Vercel Partner Certification
+        date: 2026
+
     skills:
       - label: Frontend Frameworks & Libraries
-        details: Vue.js, Nuxt.js, React, Next.js, TypeScript, JavaScript (ES6+)
+        details: React, Next.js, TypeScript, Vue.js, Nuxt.js, JavaScript (ES6+)
       - label: Mobile Development
         details: Flutter, React Native
       - label: Backend & Languages
         details: Go, C# (.NET), Node.js
       - label: Styling & Design
-        details: Tailwind CSS, CSS3, HTML5, Responsive Design
+        details: Tailwind CSS v4, shadcn/ui, CSS3, HTML5, Responsive Design
       - label: CMS & Headless Platforms
         details: Contentful, Storyblok, Scayle
       - label: Build Tools & Testing
-        details: Webpack, Vite, Playwright, Vitest, Jest, Storybook, Git, CI/CD
+        details: Biome, Webpack, Vite, Playwright, Vitest, Jest, Storybook, Git, CI/CD
       - label: Tools & Platforms
-        details: Docker, Vercel, Redis, Stripe, Usercentrics, Ninetailed
+        details: Bun, Docker, Vercel, Redis, Stripe, Usercentrics, Ninetailed
       - label: Additional
         details: Unity 3D, Maya, Virtual Reality Development
 
@@ -149,7 +149,7 @@ cv:
       - label: Interests
         details: Fitness, Football
       - label: International Experience
-        details: Work & Travel in Australia (System Operator at Auscott Cotton, Moree Queensland)
+        details: Work & Travel in Australia (Mar 2011 - Sep 2011, System Operator at Auscott Cotton, Moree Queensland)
 
 design:
   theme: engineeringresumes
