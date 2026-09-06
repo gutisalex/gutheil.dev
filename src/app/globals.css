@@ -96,7 +96,6 @@
   --sidebar-ring: oklch(0.52 0.08 215 / 40%);
   --shadow-color: 260 20% 20%;
   --site-header-height: 4rem;
-  --site-header-scroll-offset: calc(var(--site-header-height) + 1.25rem);
 }
 
 .dark {
@@ -140,7 +139,7 @@
   }
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: var(--site-header-scroll-offset);
+    scroll-padding-top: var(--site-header-height);
   }
   body {
     @apply bg-background text-foreground;
@@ -157,9 +156,6 @@
   }
   .dark body::before {
     opacity: 0.04;
-  }
-  section[id] {
-    scroll-margin-top: var(--site-header-scroll-offset);
   }
 
   @media (prefers-reduced-motion: no-preference) {
