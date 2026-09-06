@@ -92,8 +92,11 @@ export function Hero({ hero, contactEmail }: HeroProps) {
         {profileImage?.url && (
           <div className="animate-in fade-in zoom-in mx-auto duration-700 lg:mx-0">
             <div className="relative">
-              <div className="absolute -inset-3 bg-linear-to-br from-primary/20 via-transparent to-primary/10 blur-2xl" />
-              <div className="relative size-48 overflow-hidden ring-1 ring-foreground/10 shadow-premium-lg sm:size-56 lg:size-64">
+              <div
+                className="absolute -inset-5 bg-linear-to-br from-primary/30 via-primary/15 to-primary/20 blur-3xl dark:from-primary/50 dark:via-primary/25 dark:to-primary/35"
+                aria-hidden="true"
+              />
+              <div className="relative size-48 overflow-hidden rounded-2xl ring-1 ring-border/70 shadow-premium-lg before:pointer-events-none before:absolute before:inset-0 before:z-10 before:rounded-2xl before:ring-1 before:ring-inset before:ring-white/15 dark:ring-primary/35 dark:shadow-[0_0_0_1px_oklch(0.68_0.1_215_/_20%),0_12px_40px_-8px_oklch(0_0_0_/_55%),0_0_48px_-12px_oklch(0.68_0.1_215_/_35%)] sm:size-56 lg:size-64">
                 <Image
                   src={profileImage.url}
                   alt={profileImage.title || name}

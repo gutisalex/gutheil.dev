@@ -85,7 +85,7 @@ export function Navigation() {
         <div className="flex h-16 items-center justify-between">
           <Link
             href="#home"
-            className="font-sans text-sm font-semibold tracking-tight text-foreground transition-colors hover:text-foreground/80 sm:text-[0.9375rem]"
+            className="font-sans text-base font-semibold tracking-tight text-foreground transition-colors hover:text-foreground/80 sm:text-lg"
             onClick={() => setIsMobileMenuOpen(false)}
             aria-label="gutheil.dev - home"
           >
