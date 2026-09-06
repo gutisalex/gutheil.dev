@@ -99,15 +99,15 @@ gutheil.dev/
    bun run content:generate
    ```
 
-   This reads `data/resume.yaml` and generates Markdown files in `content/`.
+   This reads `data/Alexander_Gutheil_CV.yaml` and generates Markdown files in `content/`.
 
 4. **Generate PDF resume** (optional, for first run)
 
    ```bash
-   bun run resume:generate
+   bun run cv:generate
    ```
 
-   This generates the PDF resume to `public/resume.pdf`.
+   This generates the PDF resume to `public/Alexander_Gutheil_CV.pdf`.
 
 5. **Start the development server**
 
@@ -124,7 +124,7 @@ gutheil.dev/
 
 The project uses a **single source of truth** approach:
 
-- **Edit once**: Update `data/resume.yaml`
+- **Edit once**: Update `data/Alexander_Gutheil_CV.yaml`
 - **Generate everything**: Run `bun run update:all`
 - **Result**: Both website content and CV PDF are updated
 
@@ -135,7 +135,7 @@ The project uses a **single source of truth** approach:
 bun run content:generate
 
 # Generate PDF resume from YAML
-bun run resume:generate
+bun run cv:generate
 
 # Generate both (recommended)
 bun run update:all
@@ -152,7 +152,7 @@ bun run format        # Format code
 
 ### Updating Content
 
-1. **Edit** `data/resume.yaml`
+1. **Edit** `data/Alexander_Gutheil_CV.yaml`
 2. **Run** `bun run update:all`
 3. **Commit** the generated files (content/_.md and public/_.pdf)
 4. **Deploy** - Changes appear on the website
@@ -259,13 +259,13 @@ If you need to update the resume PDF:
 1. **Generate locally**
 
    ```bash
-   bun run resume:generate
+   bun run cv:generate
    ```
 
 2. **Commit the PDF**
 
    ```bash
-   git add public/resume.pdf
+   git add public/Alexander_Gutheil_CV.pdf
    git commit -m "Update resume PDF"
    git push
    ```

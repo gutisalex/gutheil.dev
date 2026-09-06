@@ -1,7 +1,7 @@
 import { execSync } from "node:child_process";
 import { existsSync, readFileSync, unlinkSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
-import yaml from "js-yaml";
+import { dump, load } from "js-yaml";
 
 const cvYamlPath = join(process.cwd(), "data", "Alexander_Gutheil_CV.yaml");
 const publicDir = join(process.cwd(), "public");
@@ -37,7 +37,7 @@ try {
 
   // Read YAML file and inject email from environment variable
   const yamlContent = readFileSync(cvYamlPath, "utf8");
-  const data = yaml.load(yamlContent) as { cv?: { email?: string } };
+  const data = load(yamlContent) as { cv?: { email?: string } };
 
   if (!data.cv) {
     console.error("❌ Error: Invalid YAML structure: missing 'cv' key");
@@ -46,7 +46,7 @@ try {
 
   // Override email with environment variable (single source of truth)
   data.cv.email = process.env.CONTACT_EMAIL;
-  const updatedYaml = yaml.dump(data, { lineWidth: -1 });
+  const updatedYaml = dump(data, { lineWidth: -1 });
 
   // Write to temporary file
   const tempYamlPath = join(

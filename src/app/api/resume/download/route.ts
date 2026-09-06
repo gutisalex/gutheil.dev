@@ -22,7 +22,7 @@ export async function GET() {
     return NextResponse.json(
       {
         error:
-          "Resume not found. Please run 'bun run resume:generate' to generate the PDF.",
+          "Resume not found. Please run 'bun run cv:generate' to generate the PDF from data/Alexander_Gutheil_CV.yaml.",
       },
       { status: 404 },
     );
