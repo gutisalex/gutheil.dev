@@ -8,9 +8,9 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { LinkedinIcon } from "@/components/LinkedinIcon";
 import { Button } from "@/components/ui/button";
+import type { HeroSection } from "@/lib/content";
 import { revealDuration, revealEase } from "@/lib/motion/constants";
 import { usePrefersReducedMotion } from "@/lib/motion/usePrefersReducedMotion";
-import type { HeroSection } from "@/lib/content";
 import { cn, obfuscateEmail } from "@/lib/utils";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
@@ -68,31 +68,38 @@ export function Hero({ hero, contactEmail }: HeroProps) {
         delay: 0.1,
       });
 
-      if (meshRef.current) {
-        gsap.to(meshRef.current, {
-          y: 72,
-          ease: "none",
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top top",
-            end: "bottom top",
-            scrub: 0.5,
-          },
-        });
-      }
+      // Scroll parallax only on fine-pointer devices. Touch browsers resize
+      // the viewport as their toolbars collapse, which moves the trigger
+      // after first paint and made the profile image jump on first scroll.
+      // Reduced motion is part of the query so the tween is never created,
+      // independent of when the preference hook settles.
+      const parallaxMedia = gsap.matchMedia();
+      parallaxMedia.add(
+        "(pointer: fine) and (hover: hover) and (prefers-reduced-motion: no-preference)",
+        () => {
+          const parallaxTargets = [
+            { element: meshRef.current, y: 72 },
+            { element: profileWrapRef.current, y: -36 },
+          ];
 
-      if (profileWrapRef.current) {
-        gsap.to(profileWrapRef.current, {
-          y: -36,
-          ease: "none",
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top top",
-            end: "bottom top",
-            scrub: 0.5,
-          },
-        });
-      }
+          for (const { element, y } of parallaxTargets) {
+            if (!element) {
+              continue;
+            }
+
+            gsap.to(element, {
+              y,
+              ease: "none",
+              scrollTrigger: {
+                trigger: sectionRef.current,
+                start: "top top",
+                end: "bottom top",
+                scrub: 0.5,
+              },
+            });
+          }
+        },
+      );
     },
     { scope: sectionRef, dependencies: [prefersReducedMotion] },
   );
@@ -166,17 +173,13 @@ export function Hero({ hero, contactEmail }: HeroProps) {
         </div>
 
         {profileImage?.url && (
-          <div
-            ref={profileWrapRef}
-            data-hero-item
-            className="mx-auto lg:mx-0"
-          >
-            <div className="relative">
+          <div ref={profileWrapRef} className="mx-auto lg:mx-0">
+            <div data-hero-item className="relative">
               <div
                 className="absolute -inset-5 bg-linear-to-br from-primary/30 via-primary/15 to-primary/20 blur-3xl dark:from-primary/50 dark:via-primary/25 dark:to-primary/35"
                 aria-hidden="true"
               />
-              <div className="relative size-48 overflow-hidden rounded-2xl ring-1 ring-border/70 shadow-premium-lg transition-transform duration-300 hover:scale-[1.02] before:pointer-events-none before:absolute before:inset-0 before:z-10 before:rounded-2xl before:ring-1 before:ring-inset before:ring-white/15 dark:ring-primary/35 dark:shadow-[0_0_0_1px_oklch(0.68_0.1_215_/_20%),0_12px_40px_-8px_oklch(0_0_0_/_55%),0_0_48px_-12px_oklch(0.68_0.1_215_/_35%)] sm:size-56 lg:size-64">
+              <div className="relative size-48 overflow-hidden rounded-none ring-1 ring-border/70 shadow-premium-lg transition-transform duration-300 hover:scale-[1.02] before:pointer-events-none before:absolute before:inset-0 before:z-10 before:rounded-none before:ring-1 before:ring-inset before:ring-white/15 dark:ring-primary/35 dark:shadow-[0_0_0_1px_oklch(0.68_0.1_215_/_20%),0_12px_40px_-8px_oklch(0_0_0_/_55%),0_0_48px_-12px_oklch(0.68_0.1_215_/_35%)] sm:size-56 lg:size-64">
                 <Image
                   src={profileImage.url}
                   alt={profileImage.title || name}
