@@ -82,13 +82,16 @@ export function Navigation() {
         <div className="flex h-16 items-center justify-between">
           <Link
             href="#home"
-            className="group flex items-center gap-2 font-mono text-sm font-medium tracking-tight transition-colors hover:text-primary"
+            className="font-sans text-sm font-semibold tracking-tight text-foreground transition-colors hover:text-foreground/80 sm:text-[0.9375rem]"
             onClick={() => setIsMobileMenuOpen(false)}
+            aria-label="Alexander Gutheil — home"
           >
-            <span className="inline-flex size-7 items-center justify-center bg-primary text-[0.65rem] font-semibold text-primary-foreground transition-transform duration-200 group-hover:scale-105">
-              AG
+            <span className="sm:hidden">
+              Gutheil<span className="text-primary">.</span>
             </span>
-            <span className="hidden sm:inline">Gutheil</span>
+            <span className="hidden sm:inline">
+              Alexander Gutheil<span className="text-primary">.</span>
+            </span>
           </Link>
 
           <div className="hidden md:flex md:items-center md:gap-0.5">
