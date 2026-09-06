@@ -1,40 +1,26 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 
 export default function NotFound() {
   return (
-    <div className="flex min-h-screen items-center justify-center p-4">
-      <Card className="w-full max-w-md">
-        <CardHeader>
-          <CardTitle className="text-2xl">404 - Page Not Found</CardTitle>
-          <CardDescription>
-            The page you&apos;re looking for doesn&apos;t exist.
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <p className="text-sm text-muted-foreground">
+    <div className="flex min-h-dvh items-center justify-center px-4">
+      <div className="w-full max-w-md space-y-6 text-center">
+        <p className="font-mono text-xs uppercase tracking-[0.2em] text-primary/80">
+          404
+        </p>
+        <div className="space-y-3">
+          <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">
+            Page not found
+          </h1>
+          <p className="text-pretty text-muted-foreground">
             The page you requested could not be found. It may have been moved,
             deleted, or the URL might be incorrect.
           </p>
-        </CardContent>
-        <CardFooter>
-          <Button
-            render={<Link href="/" />}
-            variant="default"
-            className="flex-1"
-          >
-            Go home
-          </Button>
-        </CardFooter>
-      </Card>
+        </div>
+        <Button render={<Link href="/" />} size="lg" className="shadow-premium">
+          Back to home
+        </Button>
+      </div>
     </div>
   );
 }

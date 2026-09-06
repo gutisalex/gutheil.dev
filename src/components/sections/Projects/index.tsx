@@ -1,3 +1,5 @@
+import { ScrollRevealGroup } from "@/components/motion/ScrollRevealGroup";
+import { SectionHeader } from "@/components/SectionHeader";
 import type { Project } from "@/lib/content";
 import { ProjectCard } from "./ProjectCard";
 import { ProjectsCarousel } from "./ProjectsCarousel";
@@ -12,25 +14,25 @@ export function Projects({ projects }: ProjectsProps) {
   }
 
   return (
-    <section id="projects" className="w-full px-4 py-16 sm:py-24">
-      <div className="mx-auto max-w-4xl">
-        <h2 className="mb-12 text-3xl font-bold tracking-tight sm:text-4xl relative inline-block scroll-fade-in">
-          Projects
-          <span className="absolute -bottom-2 left-0 h-1 w-12 bg-primary rounded-full" />
-        </h2>
+    <section
+      id="projects"
+      className="relative w-full border-t border-border/60 bg-muted/30 px-4 py-20 sm:py-28"
+    >
+      <ScrollRevealGroup className="mx-auto max-w-6xl" stagger={0.14}>
+        <div data-reveal>
+          <SectionHeader label="04 — Projects" title="Selected work" />
+        </div>
 
-        {/* Desktop Grid Layout */}
-        <div className="hidden md:grid md:grid-cols-2 gap-6 scroll-stagger">
+        <div className="hidden gap-6 md:grid md:grid-cols-2">
           {projects.map((project) => (
             <ProjectCard key={project.title} project={project} />
           ))}
         </div>
 
-        {/* Mobile Carousel Layout */}
         <div className="md:hidden">
           <ProjectsCarousel projects={projects} />
         </div>
-      </div>
+      </ScrollRevealGroup>
     </section>
   );
 }

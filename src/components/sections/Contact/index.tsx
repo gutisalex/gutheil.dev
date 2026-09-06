@@ -1,19 +1,9 @@
+import { ScrollRevealGroup } from "@/components/motion/ScrollRevealGroup";
+import { LinkedinIcon } from "@/components/LinkedinIcon";
+import { SectionHeader } from "@/components/SectionHeader";
 import { Button } from "@/components/ui/button";
 import type { HeroSection } from "@/lib/content";
 import { ContactForm } from "./ContactForm";
-
-// LinkedIn icon component (replacement for deprecated lucide-react Linkedin icon)
-const LinkedinIcon = ({ className }: { className?: string }) => (
-  <svg
-    className={className}
-    fill="currentColor"
-    viewBox="0 0 24 24"
-    xmlns="http://www.w3.org/2000/svg"
-    aria-hidden="true"
-  >
-    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-  </svg>
-);
 
 type ContactProps = {
   hero: HeroSection;
@@ -25,40 +15,49 @@ export function Contact({ hero }: ContactProps) {
   return (
     <section
       id="contact"
-      className="relative w-full bg-muted/30 px-4 py-16 sm:py-24 overflow-hidden"
+      className="relative w-full overflow-hidden border-t border-border/60 px-4 py-20 sm:py-28"
     >
-      {/* Subtle gradient accent */}
-      <div className="absolute inset-0 bg-linear-to-t from-primary/5 via-transparent to-transparent dark:from-primary/10" />
+      <div className="hero-mesh absolute inset-0 opacity-60" />
 
-      <div className="relative mx-auto max-w-4xl text-center">
-        <h2 className="mb-6 text-3xl font-bold tracking-tight sm:text-4xl relative inline-block scroll-fade-in">
-          Get In Touch
-          <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 h-1 w-12 bg-primary rounded-full" />
-        </h2>
-        <p className="mb-8 text-lg text-muted-foreground scroll-slide-up">
-          I&apos;m always open to discussing new opportunities and interesting
-          projects. Feel free to reach out!
+      <ScrollRevealGroup
+        className="relative mx-auto max-w-6xl"
+        stagger={0.14}
+      >
+        <div data-reveal>
+          <SectionHeader
+            label="05 — Contact"
+            title="Get in touch"
+            align="center"
+          />
+        </div>
+        <p
+          data-reveal
+          className="mx-auto mb-10 max-w-2xl text-pretty text-center text-lg text-muted-foreground"
+        >
+          Open to new opportunities and interesting projects. Send a message or
+          connect on LinkedIn.
         </p>
 
-        {/* Contact Form */}
-        <div className="mb-8 scroll-slide-up">
+        <div
+          data-reveal
+          className="mx-auto mb-10 max-w-xl surface-elevated p-6 transition-transform duration-300 hover:-translate-y-0.5 sm:p-8"
+        >
           <ContactForm />
         </div>
 
-        {/* LinkedIn Link */}
-        <div className="scroll-slide-up">
+        <div data-reveal className="text-center">
           <a href={linkedInUrl} target="_blank" rel="noopener noreferrer">
             <Button
               size="lg"
               variant="outline"
-              className="flex items-center gap-2 mx-auto shadow-md hover:shadow-lg transition-all duration-200"
+              className="mx-auto gap-2 shadow-premium transition-transform duration-200 hover:scale-[1.02]"
             >
-              <LinkedinIcon className="h-5 w-5" />
+              <LinkedinIcon className="size-4" />
               Connect on LinkedIn
             </Button>
           </a>
         </div>
-      </div>
+      </ScrollRevealGroup>
     </section>
   );
 }

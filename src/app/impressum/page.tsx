@@ -15,13 +15,18 @@ export default function ImpressumPage() {
   return (
     <>
       <Navigation />
-      <div className="min-h-screen pt-16">
-        <main className="mx-auto max-w-4xl px-4 py-16 sm:py-24">
-          <h1 className="mb-8 text-4xl font-bold tracking-tight">Impressum</h1>
+      <div className="min-h-dvh pt-[var(--site-header-height)]">
+        <main className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
+          <p className="mb-3 font-mono text-xs font-medium uppercase tracking-[0.2em] text-primary/80">
+            Legal
+          </p>
+          <h1 className="mb-10 text-3xl font-semibold tracking-tight sm:text-4xl">
+            Impressum
+          </h1>
 
-          <div className="prose prose-slate dark:prose-invert max-w-none">
-            <section className="mb-8">
-              <h2 className="mb-4 text-2xl font-semibold">
+          <div className="max-w-3xl space-y-10 text-muted-foreground">
+            <section>
+              <h2 className="mb-4 text-lg font-semibold text-foreground">
                 Angaben gemäß § 5 TMG
               </h2>
               <p className="mb-2">
@@ -43,8 +48,8 @@ export default function ImpressumPage() {
               </p>
             </section>
 
-            <section className="mb-8">
-              <h2 className="mb-4 text-2xl font-semibold">
+            <section>
+              <h2 className="mb-4 text-lg font-semibold text-foreground">
                 Verantwortlich für den Inhalt
               </h2>
               <p>Alexander Gutheil</p>
@@ -52,12 +57,12 @@ export default function ImpressumPage() {
               <p>34134 Kassel</p>
             </section>
 
-            <section className="mb-8">
-              <h2 className="mb-4 text-2xl font-semibold">
+            <section>
+              <h2 className="mb-4 text-lg font-semibold text-foreground">
                 Haftungsausschluss
               </h2>
 
-              <h3 className="mb-3 text-xl font-semibold">
+              <h3 className="mb-3 text-base font-medium text-foreground">
                 Haftung für Inhalte
               </h3>
               <p className="mb-4">
@@ -72,7 +77,9 @@ export default function ImpressumPage() {
                 auf eine rechtswidrige Tätigkeit hinweisen.
               </p>
 
-              <h3 className="mb-3 text-xl font-semibold">Haftung für Links</h3>
+              <h3 className="mb-3 text-base font-medium text-foreground">
+                Haftung für Links
+              </h3>
               <p className="mb-4">
                 Unser Angebot enthält Links zu externen Webseiten Dritter, auf
                 deren Inhalte wir keinen Einfluss haben. Deshalb können wir für
@@ -88,7 +95,9 @@ export default function ImpressumPage() {
                 umgehend entfernen.
               </p>
 
-              <h3 className="mb-3 text-xl font-semibold">Urheberrecht</h3>
+              <h3 className="mb-3 text-base font-medium text-foreground">
+                Urheberrecht
+              </h3>
               <p className="mb-4">
                 Die durch die Seitenbetreiber erstellten Inhalte und Werke auf
                 diesen Seiten unterliegen dem deutschen Urheberrecht. Die
@@ -107,9 +116,12 @@ export default function ImpressumPage() {
             </section>
           </div>
 
-          <div className="mt-12 pt-8 border-t border-border">
-            <Link href="/" className="text-primary hover:underline text-sm">
-              ← Zurück zur Startseite
+          <div className="mt-12 border-t border-border/60 pt-8">
+            <Link
+              href="/"
+              className="text-sm text-muted-foreground underline-offset-4 transition-colors hover:text-foreground hover:underline"
+            >
+              ← Back to home
             </Link>
           </div>
         </main>

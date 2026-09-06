@@ -1,3 +1,5 @@
+import { ScrollRevealGroup } from "@/components/motion/ScrollRevealGroup";
+import { SectionHeader } from "@/components/SectionHeader";
 import type { AboutSection } from "@/lib/content";
 
 type AboutProps = {
@@ -9,16 +11,21 @@ export function About({ about }: AboutProps) {
   const summary = about.summary ?? "";
 
   return (
-    <section id="about" className="w-full bg-muted/30 px-4 py-16 sm:py-24">
-      <div className="mx-auto max-w-4xl">
-        <h2 className="mb-6 text-3xl font-bold tracking-tight sm:text-4xl relative inline-block scroll-fade-in">
-          {title}
-          <span className="absolute -bottom-2 left-0 h-1 w-12 bg-primary rounded-full" />
-        </h2>
-        <p className="text-lg leading-relaxed text-muted-foreground whitespace-pre-line scroll-slide-up">
+    <section
+      id="about"
+      className="relative w-full border-t border-border/60 px-4 py-20 sm:py-28"
+    >
+      <ScrollRevealGroup className="mx-auto max-w-6xl">
+        <div data-reveal>
+          <SectionHeader label="01 — About" title={title} />
+        </div>
+        <p
+          data-reveal
+          className="max-w-3xl text-pretty text-lg leading-[1.75] text-muted-foreground whitespace-pre-line sm:text-xl"
+        >
           {summary}
         </p>
-      </div>
+      </ScrollRevealGroup>
     </section>
   );
 }

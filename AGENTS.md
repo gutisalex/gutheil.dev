@@ -15,3 +15,16 @@ Using default label vocabulary (`needs-triage`, `needs-info`, `ready-for-agent`,
 ### Domain docs
 
 Single-context repo — one `CONTEXT.md` + `docs/adr/` at the root (neither exists yet; skills proceed silently). See `docs/agents/domain.md`.
+
+## Site navigation
+
+- In-page nav links are plain `<a href="#id">` with a click handler, not `next/link`: the App Router ignores a navigation to the hash already in the URL, so `Link` anchors go dead after a reload or a repeat click. See `scrollToSection` in `src/components/Navigation.tsx`.
+- The fixed-header scroll offset lives only in `scroll-padding-top` on `<html>` (`--site-header-height` in `src/app/globals.css`). Do not add `scroll-margin-top` to sections; the two stack.
+- `src/components/ui/drawer.tsx` is deliberately customized: it stacks at `z-40` under the `z-50` header, renders the overlay for `modal="trap-focus"`, and accepts `overlayProps`. Re-adding it via the shadcn CLI drops these, and the CLI writes `import { cn } from "cn"`; use `@/lib/utils`.
+
+## Maintaining this file
+
+Keep this file for knowledge useful to almost every future agent session in this project.
+Do not repeat what the codebase already shows; point to the authoritative file or command instead.
+Prefer rewriting or pruning existing entries over appending new ones.
+When updating this file, preserve this bar for all agents and keep entries concise.
