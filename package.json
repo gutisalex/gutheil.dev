@@ -38,7 +38,7 @@
     "postcss": "^8.5.32"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.5.12",
+    "@biomejs/biome": "2.6.3",
     "shadcn": "^4.23.0",
     "@tailwindcss/postcss": "^4.3.3",
     "@types/js-yaml": "^4.0.9",
